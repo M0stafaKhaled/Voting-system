@@ -26,7 +26,7 @@ public class Person {
     private String password;
     private String phoneNumber;
     private String city;
-    private  Scanner x ;
+    private Scanner x;
 
     public String getName() {
         return name;
@@ -77,10 +77,7 @@ public class Person {
     }
 
     public boolean Isvalidate() {
-        
-      
-        
-        
+
         if (!valName(this.name)) {
             System.out.println("Name is unvalied");
             return false;
@@ -126,29 +123,35 @@ public class Person {
 
     public boolean valPassword(String password) {
 
-        if (password.length() >= 8 && 15 >password.length()) {
-            
+        if (password.length() >= 8 && 15 > password.length()) {
+
             return checkPassword(password);
         } else {
             System.out.println("Password is too small");
             return false;
         }
     }
-    public boolean  checkPassword(String password){
-    boolean hasCapital = false ; boolean hasNumber = false ; boolean hasLower = false ; char c;
-            for(int i =0; i <password.length();i++){
-                    c = password.charAt(i);
-                    if(Character.isDigit(c))
-                        hasNumber = true;
-                    else if(Character.isUpperCase(c))
-                        hasCapital = true;
-                    else if(Character.isLowerCase(c))
-                        hasLower = true;
-                     if(hasCapital && hasLower && hasNumber)
-                        return true;    
+
+    public boolean checkPassword(String password) {
+        boolean hasCapital = false;
+        boolean hasNumber = false;
+        boolean hasLower = false;
+        char c;
+        for (int i = 0; i < password.length(); i++) {
+            c = password.charAt(i);
+            if (Character.isDigit(c)) {
+                hasNumber = true;
+            } else if (Character.isUpperCase(c)) {
+                hasCapital = true;
+            } else if (Character.isLowerCase(c)) {
+                hasLower = true;
             }
-           return  false;
-    
+            if (hasCapital && hasLower && hasNumber) {
+                return true;
+            }
+        }
+        return false;
+
     }
 
     public boolean valCity(String city) {
@@ -173,56 +176,80 @@ public class Person {
         this.phoneNumber = phoneNumber;
         this.city = city;
     }
-    
-  
-   
-   
-    public static void ADDUser( String name, String id, String userName, String password, String phoneNumber, String city,String filePath){
-    
+
+    public static void ADDUser(String name, String id, String userName, String password, String phoneNumber, String city, String filePath) {
+
         try {
-             FileWriter fw = new FileWriter(filePath,true);
+            FileWriter fw = new FileWriter(filePath, true);
             BufferedWriter bufferedWriter = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bufferedWriter);
-             pw.println(id+","+name+","+ userName+","+password+","+phoneNumber +","+city);
-             pw.flush();
-             pw.close();
-             
+            pw.println(id + "," + name + "," + userName + "," + password + "," + phoneNumber + "," + city);
+            pw.flush();
+            pw.close();
+
         } catch (IOException e) {
-             System.out.println("File not Found And"
-                     + "Data is unsaved");
+            System.out.println("File not Found And"
+                    + "Data is unsaved");
         }
     }
 
- public void login(String SearchTerm ,  String filpath ){
+    public void login(String SearchTerm,String password, String filpath) {
         boolean found = false;
-        String nameOfUer  , idOfUer , userNameOfUer , passwordOfUer , phoneNumerOfUer , cityOfUer ; 
-       
-       
-        
+        String nameOfUer = "";
+        String idOfUer = " ";
+        String userNameOfUer = " ";
+        String passwordOfUer = " ";
+        String  phoneNumerOfUer = " ";                  
+        String cityOfUer = " ";
+
         try {
-           x = new Scanner(new File(filpath));
-           x.useDelimiter("[,\n]");
-           
+            x = new Scanner(new File(filpath));
+            x.useDelimiter("[,\n]");
+
             while (x.hasNext()) {
+
+                nameOfUer = x.next();
+                idOfUer = x.next();
+                userNameOfUer = x.next();
+                passwordOfUer = x.next();
+                phoneNumerOfUer = x.next();
+                cityOfUer = x.next();
+
+                if (idOfUer.equals(SearchTerm) || userNameOfUer.equals(SearchTerm)) {
+
+                    found = true;
+
+                }
                 
-                            nameOfUer = x.next();
-                            idOfUer = x.next();
-                            userNameOfUer = x.next();
-                            passwordOfUer = x.next();
-                            phoneNumerOfUer = x.next();
-                            cityOfUer = x.next();
-                            
-                
-                    if(idOfUer.equals(SearchTerm) || userNameOfUer.equals(SearchTerm)){
-                    
-                                found = true;
-                    
-                    }
+
+            }
+            if(found){
             
+                if(!passwordOfUer.equals(password)) {
+                    System.out.println("Incorrect password.");
+                }
+                else 
+                    System.out.println("login correct");
+                    
+                
+                
+            }
+            else{
+                    System.out.println("Incorrect username");
+            
+            }
+            
+
+        } catch (FileNotFoundException e) {
         }
-           
-       } catch (FileNotFoundException e) {
-       }
+
+       
+    }
+    
+    
+    public void vote(){
+    
+    
     }
     
 }
