@@ -9,10 +9,7 @@ package voting;
  *
  * @author mkost
  */
-public class Voting {
-
-    /**
-     * @param args the command line arguments
-     */
-   
+public class Admin {
+    
+    
 }
