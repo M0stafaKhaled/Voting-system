@@ -12,7 +12,9 @@ import java.util.ArrayList;
  * @author mkost
  */
 public class Candidate extends Person{
-     ArrayList<Voter> WhoVote = new ArrayList<>();
+    
+    private String  party_symbol;
+
 
     public Candidate(String name, String id, String userName, String password, String phoneNumber, String city) {
         super(name, id, userName, password, phoneNumber, city);
