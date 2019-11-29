@@ -6,7 +6,7 @@
 package voting;
 
 
-import java.util.ArrayList;
+
 
 
 
@@ -14,17 +14,20 @@ import java.util.ArrayList;
  *
  * @author mkost
  */
-public class Voter extends Person{
+public final class Voter extends Person{
 
+             
      
-    
+                String m  ;
    
-       
-    
+          
     public Voter(String name, String id, String userName, String password, String phoneNumber, String city) {
                super(name, id, userName, password, phoneNumber, city);
-        
+               
+                    m =  name + " "+ id +" "+ userName  +" "+ password +" "+ phoneNumber +" "+ city;
     }
+        
+
     
     
    

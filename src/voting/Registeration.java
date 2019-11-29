@@ -26,16 +26,18 @@ public final class Registeration {
     private String password;
     private String phoneNumber;
     private String city;
-   private int ID; 
+    private int ID; 
+    private  Voter voter;
     private  Scanner x ;
    
-    public Registeration(String name, String id, String userName, String password, String phoneNumber, String city) {
+    public Registeration(String name, String id, String userName, String password, String phoneNumber, String city, boolean isvaleted) {
         this.name = name;
         this.id = id;
         this.userName = userName;
         this.password = password;
         this.phoneNumber = phoneNumber;
         this.city = city;
+        SignUp(name, id, userName, password, phoneNumber, city, city, isvaleted);
     }
     public Registeration(String loginterm , String Password , String filpath){
     
@@ -135,9 +137,7 @@ public final class Registeration {
         if (!Pattern.matches("[0-9]+", id)) {
             return false;
         }
-
         return id.length() == 14;
-
     }
 
    
@@ -155,6 +155,7 @@ public final class Registeration {
                     try (PrintWriter pw = new PrintWriter(bufferedWriter)) {
                         pw.println(id + "," + name + "," + userName + "," + password + "," + phoneNumber + "," + city);
                         pw.flush();
+                        login(userName, password, filePath);
                     }
                     
                 } catch (IOException e) {
@@ -166,12 +167,12 @@ public final class Registeration {
 
     public final void login(String SearchTerm,String password, String filpath) {
         boolean found = false;
-        String nameOfUer ;
-        String idOfUer ;
+        String nameOfUer = null ;
+        String idOfUer = null ;
         String userNameOfUer ;
         String passwordOfUer = null ;
-        String  phoneNumerOfUer ;                  
-        String cityOfUer ;
+        String  phoneNumerOfUer = null ;                  
+        String cityOfUer = null ;
 
         try {
             x = new Scanner(new File(filpath));
@@ -195,11 +196,14 @@ public final class Registeration {
             }
             if(found){
                 if(!passwordOfUer.equals(password)) {
-                    System.out.println("Incorrect password.");
+                    System.out.println("Incorrect password");
                 }
-                else 
-                    System.out.println("login correct");
-                
+                else {
+                  voter = new Voter(nameOfUer, idOfUer, passwordOfUer, password, phoneNumerOfUer, cityOfUer);
+                  
+                    System.out.println( voter.m);
+                   
+                }
             }
             else{
                     System.out.println("Incorrect username");

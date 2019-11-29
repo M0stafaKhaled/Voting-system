@@ -19,6 +19,7 @@ public class Candidate extends Person{
     public Candidate(String name, String id, String userName, String password, String phoneNumber, String city) {
         super(name, id, userName, password, phoneNumber, city);
     }
+   
 
    
     

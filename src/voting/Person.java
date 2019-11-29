@@ -71,6 +71,11 @@ public class Person {
         this.phoneNumber = phoneNumber;
         this.city = city;
     }  
+
+    @Override
+    public String toString() {
+        return "Person{" + "name=" + name + ", id=" + id + ", userName=" + userName + ", password=" + password + ", phoneNumber=" + phoneNumber + ", city=" + city + '}';
+    }
     
     
     
