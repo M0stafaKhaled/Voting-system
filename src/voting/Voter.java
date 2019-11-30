@@ -18,14 +18,20 @@ public final class Voter extends Person{
 
              
      
-                String m  ;
+               public String m  ;
+               private  static int ID =1000;
    
           
     public Voter(String name, String id, String userName, String password, String phoneNumber, String city) {
                super(name, id, userName, password, phoneNumber, city);
                
                     m =  name + " "+ id +" "+ userName  +" "+ password +" "+ phoneNumber +" "+ city;
+                    ID++;
     }
+    
+   public void vote(){}
+     public void editeVote(){}
+    
         
 
     

@@ -8,10 +8,18 @@ package voting;
 
 public class Admin {
     
-    
+    private Voter voter;
     public  void addCandidte(){
     
     
+    }
+     public  void deleteCandidte(){
+    
+    
+    }
+
+    public Voter getVoter() {
+        return voter;
     }
     
 }

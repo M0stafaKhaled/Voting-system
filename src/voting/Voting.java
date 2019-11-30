@@ -6,6 +6,8 @@
 package voting;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -13,13 +15,18 @@ import java.util.ArrayList;
  */
 public class Voting {
 
-           ArrayList<Candidate> candidates = new ArrayList<>();
-          private final Voter voter;
+          private final List<Candidate> candidates;
+          private final  Voter voter;
+          private  Date timeOfVoting;
 
-    public Voting(Voter voter) {
+    public Voting(Voter voter ,ArrayList<Candidate>candidates ) {
+        this.candidates = candidates;
         this.voter = voter;
     }
     
+     public void sumbitVote(){}
+     public void cancleVote(){}
+     public void countVote(){}
    
    
 }

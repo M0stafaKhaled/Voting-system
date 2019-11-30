@@ -8,7 +8,7 @@ package voting;
 import java.util.Scanner;
 
 
-public class Test {
+public class Main {
     
     
      public static void main(String[] args) {
@@ -31,8 +31,7 @@ public class Test {
            
              Registeration re = new Registeration();
              re.login("mostafa","253332Mm4" , filepath);
-            Voting voting = new Voting(re.getVoter());
-               
+         
             
            
 
