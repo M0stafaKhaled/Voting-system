@@ -5,11 +5,13 @@
  */
 package voting;
 
-/**
- *
- * @author mkost
- */
+
 public class Admin {
     
+    
+    public  void addCandidte(){
+    
+    
+    }
     
 }

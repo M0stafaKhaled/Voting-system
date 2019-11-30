@@ -5,7 +5,7 @@
  */
 package voting;
 
-import java.util.ArrayList;
+
 
 /**
  *
@@ -14,12 +14,24 @@ import java.util.ArrayList;
 public class Candidate extends Person{
     
     private String  party_symbol;
+    private String Electoral_program;
 
-
-    public Candidate(String name, String id, String userName, String password, String phoneNumber, String city) {
+    public Candidate(String name, String id, String userName, String password, String phoneNumber, String city,String party_symbol, String Electoral_program) {
+        
         super(name, id, userName, password, phoneNumber, city);
+         this.party_symbol = party_symbol;
+        this.Electoral_program = Electoral_program;
+         
+     
+        
     }
    
+    public  Candidate(){}
+
+    public Candidate(String party_symbol, String Electoral_program) {
+        this.party_symbol = party_symbol;
+        this.Electoral_program = Electoral_program;
+    }
 
    
     

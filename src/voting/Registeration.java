@@ -47,6 +47,11 @@ public final class Registeration {
     
     
     }
+
+    public Voter getVoter() {
+        return voter;
+    }
+    
       
     
      public boolean Isvalidate(String name, String id, String userName, String password, String phoneNumber, String city) {

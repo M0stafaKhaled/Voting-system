@@ -31,6 +31,8 @@ public class Test {
            
              Registeration re = new Registeration();
              re.login("mostafa","253332Mm4" , filepath);
+            Voting voting = new Voting(re.getVoter());
+               
             
            
 

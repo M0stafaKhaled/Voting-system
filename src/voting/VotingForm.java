@@ -5,21 +5,10 @@
  */
 package voting;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author mkost
  */
-public class Voting {
-
-           ArrayList<Candidate> candidates = new ArrayList<>();
-          private final Voter voter;
-
-    public Voting(Voter voter) {
-        this.voter = voter;
-    }
+public class VotingForm {
     
-   
-   
 }
