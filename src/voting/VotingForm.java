@@ -10,5 +10,6 @@ package voting;
  * @author mkost
  */
 public class VotingForm {
+    public void showCantidateList(){}
     
 }

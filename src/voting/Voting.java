@@ -27,6 +27,8 @@ public class Voting {
      public void sumbitVote(){}
      public void cancleVote(){}
      public void countVote(){}
+     public boolean hasVote(){
+     return  false;}
    
    
 }
