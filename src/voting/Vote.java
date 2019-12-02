@@ -5,22 +5,15 @@
  */
 package voting;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
-/**
- *
- * @author mkost
- */
-public class Voting {
+public class Vote {
 
-          private final List<Candidate> candidates;
+         
           private final  Voter voter;
           private  Date timeOfVoting;
 
-    public Voting(Voter voter ,ArrayList<Candidate>candidates ) {
-        this.candidates = candidates;
+    public Vote(Voter voter  ) {
+      
         this.voter = voter;
     }
     
