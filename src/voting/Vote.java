@@ -6,22 +6,52 @@
 package voting;
 
 
+
+import java.io.File;
+import java.util.HashMap;
+import java.util.Scanner;
+
+
+
+
+
 public class Vote {
 
          
           private final  Voter voter;
-          private  Date timeOfVoting;
+          private Date timeOfVoting;
+          public String  VoterID;
+          public String  CandidateName ;
+          public  Scanner x ;
+         
+          
 
-    public Vote(Voter voter  ) {
+    public Vote(Voter voter) {
       
         this.voter = voter;
     }
+        
+    /**
+     *
+     * @param VoteList
+     */
+    HashMap<String,String> VoteList = new HashMap<>();
     
-     public void sumbitVote(){}
-     public void cancleVote(){}
-     public void countVote(){}
-     public boolean hasVote(){
-     return  false;}
-   
-   
+    
+    public void addVote(HashMap<String,String> VoteList,String VoterID,String CandidateName){
+            VoteList.put(VoterID, CandidateName);
+    }
+  
+            
+    public boolean hasVote(){
+            
+        return false; 
+}
+  
+//    public  HashMap<String,String> showListOfVote(){
+//    
+// 
+//            
+//   
+//}
 }

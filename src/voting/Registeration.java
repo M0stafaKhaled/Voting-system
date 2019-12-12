@@ -172,12 +172,12 @@ public final class Registeration {
 
     public final void login(String SearchTerm,String password, String filpath) {
         boolean found = false;
-        String nameOfUer = null ;
-        String idOfUer = null ;
-        String userNameOfUer ;
-        String passwordOfUer = null ;
-        String  phoneNumerOfUer = null ;                  
-        String cityOfUer = null ;
+        String nameOfUser = null ;
+        String idOfUser = null ;
+        String userNameOfUser ;
+        String passwordOfUser = null ;
+        String  phoneNumerOfUser = null ;                  
+        String cityOfUser = null ;
 
         try {
             x = new Scanner(new File(filpath));
@@ -186,29 +186,29 @@ public final class Registeration {
             while (x.hasNext()) {
 
                 
-                idOfUer = x.next();
-                nameOfUer = x.next();
-                userNameOfUer = x.next();
-                passwordOfUer = x.next();
-                phoneNumerOfUer = x.next();
-                cityOfUer = x.next();
+                idOfUser = x.next();
+                nameOfUser = x.next();
+                userNameOfUser = x.next();
+                passwordOfUser = x.next();
+                phoneNumerOfUser = x.next();
+                cityOfUser = x.next();
 
-                if (idOfUer.equals(SearchTerm) || userNameOfUer.equals(SearchTerm)) {
+                if (idOfUser.equals(SearchTerm) || userNameOfUser.equals(SearchTerm)) {
 
                     found = true;
 
                 }
             }
             if(found){
-                if(!passwordOfUer.equals(password)) {
+                if(!passwordOfUser.equals(password)) {
                     System.out.println("Incorrect password");
                 }
                 else {
-                  voter = new Voter(nameOfUer, idOfUer, passwordOfUer, password, phoneNumerOfUer, cityOfUer);
+                  voter = new Voter(nameOfUser, idOfUser, passwordOfUser, passwordOfUser, phoneNumerOfUser, cityOfUser);
                   
-                    System.out.println( voter.m);
+                    System.out.println(voter.getVoterData());
                    
-                }
+                } 
             }
             else{
                     System.out.println("Incorrect username");

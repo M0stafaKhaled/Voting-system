@@ -18,19 +18,29 @@ public final class Voter extends Person{
 
              
      
-               public String m  ;
-               private  static int ID =1000;
+              private String VoterData ;
+              private String password;
+              private String id;
+               
    
           
     public Voter(String name, String id, String userName, String password, String phoneNumber, String city) {
-               super(name, id, userName, password, phoneNumber, city);
+               super(name, id, userName,  phoneNumber, city);
                
-                    m =  name + " "+ id +" "+ userName  +" "+ password +" "+ phoneNumber +" "+ city;
-                    ID++;
+                    VoterData=  name + " "+ id +" "+ userName  +" "+ password +" "+ phoneNumber +" "+ city;
+                  
     }
     
    public void vote(){}
      public void editeVote(){}
+
+    public String getVoterData() {
+        return VoterData;
+    }
+
+    public void setVoterData(String VoterData) {
+        this.VoterData = VoterData;
+    }
     
         
 
