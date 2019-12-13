@@ -1,10 +1,11 @@
 
 package voting;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 public class Main {
-     public static void main(String[] args) {
+     public static void main(String[] args) throws IOException {
          Scanner sc = new Scanner(System.in);
 //         String name , id , userName , password   , phoneNumber, city;
 //      id ="27010200202071";
@@ -21,18 +22,26 @@ public class Main {
 //                    re.SignUp(name, id, userName, password, phoneNumber, city, filepath, m);
 //         
            Vote vote = new Vote();
-          System.out.println(vote.showListOfVote().size());
-          System.out.println(vote.showListOfVote().keySet());
-          System.out.println(vote.showListOfVote().get("27010200202075"));
-          Map m = vote.showListOfVote();
+           Map m = vote.showListOfVote();
+          
+        
         
           
-            for (Object key: m.keySet()) {
-         System.out.println("key : " + key);
-                System.out.println("value : " + m.get(key));
-}
-          vote.addVote((HashMap<String, String>) m, "2201801232","kkd");
+            
+          
+        
+              vote.addVote((HashMap<String, String>) m,"2201801239" ,"pipi");
+           
            System.out.println(m.size());
+           
+           
+            m.keySet().stream().map((key) -> {
+               System.out.println("key : " + key);
+             return key;
+         }).forEachOrdered((key) -> {
+             System.out.println("value : " + m.get(key));
+         });
+           
 
     }
     

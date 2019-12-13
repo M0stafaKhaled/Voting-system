@@ -1,41 +1,49 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package voting;
 
 
-
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-
-
-
-
-
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
 public class Vote {
-
-         
         
           private Date timeOfVoting;
           public String  VoterID;
           public String  CandidateName ;
           private Scanner x ;
     
-    
-    
+
     public void addVote(HashMap<String,String> VoteList,String VoterID,String CandidateName){
+                if(!(hasVote(VoteList, VoterID))){
+              String  filePath = "VotingList.txt";
             VoteList.put(VoterID, CandidateName);
+             try {
+                    FileWriter fw = new FileWriter(filePath, true);
+                    BufferedWriter bufferedWriter = new BufferedWriter(fw);
+                    try (PrintWriter pw = new PrintWriter(bufferedWriter)) {
+                        pw.println(VoterID+","+CandidateName);
+                        pw.flush();
+                    }
+             }
+             catch(IndexOutOfBoundsException e1){  
+                        System.out.println("Fie not found");
+                    } catch (IOException ex) {
+                        Logger.getLogger(Vote.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                else{
+                }
     }
-  
-            
-    public boolean hasVote(){  
-        return false; 
+    public boolean hasVote(HashMap<String,String>List ,String VoterId){  
+        
+              return List.containsKey(VoterId);       
 }
          
    public  Map<String,String> showListOfVote(){
@@ -50,7 +58,6 @@ public class Vote {
                  voterId = x.next();
                  candidateName = x.next();
                  hashMap.put(voterId,candidateName);  
-                
              }
              x.close();
          }
