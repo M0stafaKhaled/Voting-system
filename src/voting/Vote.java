@@ -8,8 +8,10 @@ package voting;
 
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Scanner;
+
 
 
 
@@ -18,24 +20,12 @@ import java.util.Scanner;
 public class Vote {
 
          
-          private final  Voter voter;
+        
           private Date timeOfVoting;
           public String  VoterID;
           public String  CandidateName ;
-          public  Scanner x ;
-         
-          
-
-    public Vote(Voter voter) {
-      
-        this.voter = voter;
-    }
-        
-    /**
-     *
-     * @param VoteList
-     */
-    HashMap<String,String> VoteList = new HashMap<>();
+          private Scanner x ;
+    
     
     
     public void addVote(HashMap<String,String> VoteList,String VoterID,String CandidateName){
@@ -43,15 +33,29 @@ public class Vote {
     }
   
             
-    public boolean hasVote(){
-            
+    public boolean hasVote(){  
         return false; 
 }
-  
-//    public  HashMap<String,String> showListOfVote(){
-//    
-// 
-//            
-//   
-//}
+   public  HashMap<String,String> showListOfVote(String filpath){
+                String voterId ;
+                String candidateName ;
+              HashMap<String, String> hashMap = new HashMap();
+         try {
+            x = new Scanner(new File(filpath));
+            x.useDelimiter("[,\n]");
+             while (x.hasNext()) {  
+                 voterId = x.next();
+                 candidateName = x.next();
+                 hashMap.put(voterId,candidateName);  
+                
+             }
+              ;
+            
+             x.close();
+         }
+         catch(FileNotFoundException e1){
+                System.out.println("File not found");
+         }
+         return hashMap;
+}
 }
