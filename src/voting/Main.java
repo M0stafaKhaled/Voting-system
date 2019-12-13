@@ -1,13 +1,9 @@
 
 package voting;
-
-
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
-
-
 public class Main {
-    
-    
      public static void main(String[] args) {
          Scanner sc = new Scanner(System.in);
 //         String name , id , userName , password   , phoneNumber, city;
@@ -23,17 +19,12 @@ public class Main {
 //         Registeration re = new Registeration();
 //      boolean m =   re.Isvalidate(name, id,userName,password,phoneNumber,city);
 //                    re.SignUp(name, id, userName, password, phoneNumber, city, filepath, m);
-//    
-       
-           
+//         
            Vote vote = new Vote();
-          System.out.println(vote.showListOfVote("VotingList.txt").values());
-         
-           
-
-
-
-
+          System.out.println(vote.showListOfVote().size());
+          Map m = vote.showListOfVote();
+          vote.addVote((HashMap<String, String>) m, "2201801232","kkd");
+          m.size();
     }
     
 }

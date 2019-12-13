@@ -10,6 +10,7 @@ package voting;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 
@@ -36,9 +37,11 @@ public class Vote {
     public boolean hasVote(){  
         return false; 
 }
-   public  HashMap<String,String> showListOfVote(String filpath){
-                String voterId ;
-                String candidateName ;
+         
+   public  Map<String,String> showListOfVote(){
+        String filpath = "VotingList.txt";
+                String voterId = "";
+                String candidateName = "" ;
               HashMap<String, String> hashMap = new HashMap();
          try {
             x = new Scanner(new File(filpath));
@@ -49,8 +52,6 @@ public class Vote {
                  hashMap.put(voterId,candidateName);  
                 
              }
-              ;
-            
              x.close();
          }
          catch(FileNotFoundException e1){
