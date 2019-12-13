@@ -22,9 +22,18 @@ public class Main {
 //         
            Vote vote = new Vote();
           System.out.println(vote.showListOfVote().size());
+          System.out.println(vote.showListOfVote().keySet());
+          System.out.println(vote.showListOfVote().get("27010200202075"));
           Map m = vote.showListOfVote();
+        
+          
+            for (Object key: m.keySet()) {
+         System.out.println("key : " + key);
+                System.out.println("value : " + m.get(key));
+}
           vote.addVote((HashMap<String, String>) m, "2201801232","kkd");
-          m.size();
+           System.out.println(m.size());
+
     }
     
 }

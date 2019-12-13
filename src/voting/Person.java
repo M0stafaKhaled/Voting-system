@@ -15,11 +15,9 @@ public abstract class Person {
         this.name = name;
         this.id = id;
         this.userName = userName;
-       
         this.phoneNumber = phoneNumber;
         this.city = city;
     }  
-
     public Person() {
     }
 

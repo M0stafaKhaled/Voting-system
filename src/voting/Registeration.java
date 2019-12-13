@@ -15,10 +15,6 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 
-/**
- *
- * @author mkost
- */
 public final class Registeration {
     private String name;
     private String id;
