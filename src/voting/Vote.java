@@ -53,7 +53,7 @@ public class Vote {
               HashMap<String, String> hashMap = new HashMap();
          try {
             x = new Scanner(new File(filpath));
-            x.useDelimiter("[,\n]");
+            x.useDelimiter("[,\n]"); 
              while (x.hasNext()) {  
                  voterId = x.next();
                  candidateName = x.next();

@@ -1,10 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package voting;
-
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -25,6 +19,7 @@ public final class Registeration {
     private int ID; 
     private  Voter voter;
     private  Scanner x ;
+    private boolean  isLogin = false;
    
     public Registeration(String name, String id, String userName, String password, String phoneNumber, String city, boolean isvaleted) {
         this.name = name;
@@ -188,9 +183,7 @@ public final class Registeration {
                 passwordOfUser = x.next();
                 phoneNumerOfUser = x.next();
                 cityOfUser = x.next();
-
                 if (idOfUser.equals(SearchTerm) || userNameOfUser.equals(SearchTerm)) {
-
                     found = true;
 
                 }
@@ -200,8 +193,8 @@ public final class Registeration {
                     System.out.println("Incorrect password");
                 }
                 else {
-                  voter = new Voter(nameOfUser, idOfUser, passwordOfUser, passwordOfUser, phoneNumerOfUser, cityOfUser);
-                  
+                 
+                      isLogin = true;    
                     System.out.println(voter.getVoterData());
                    
                 } 
@@ -217,4 +210,9 @@ public final class Registeration {
 
        
     }
+
+    public boolean isIsLogin() {
+        return isLogin;
+    }
+    
 }
