@@ -1,19 +1,24 @@
 
 package voting;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 public class Main {
      public static void main(String[] args) throws IOException {
          Scanner sc = new Scanner(System.in);
-//         String name , id , userName , password   , phoneNumber, city;
-//      id ="27010200202071";
-//         name = "mostafa";
+         String name , id , userName , password   , phoneNumber, city , party_symbol , Electoral_program ; 
+         
+     id ="27010200202071";
+         name = "khaled";
 //         password = "253332Mm4";
-//         userName = "mostafa";
-//         phoneNumber = "01500000000";
-//         city = "cairo";
+         userName = "khaled22";
+         phoneNumber = "01500000006";
+         city = "cairo";
+         party_symbol = "pipe";
+         Electoral_program  = "Senate instantly made him the highest-ranking African American officeholder in the country";
+         
 //             String filepath  = "voter.txt";
 // 
 //
@@ -28,8 +33,8 @@ public class Main {
 //        
 //          
 //            
-//          
-//        
+//                      
+//                  
 //              vote.addVote((HashMap<String, String>) m,"2201801239" ,"pipi");
 //           
 //           System.out.println(m.size());
@@ -42,10 +47,14 @@ public class Main {
 //             System.out.println("value : " + m.get(key));
 //         });
 
-Result result = new Result();
-         System.out.println(result.getResult());
-           
-
+//Result result = new Result();
+//         System.out.println(result.getResult());
+//           
+    Admin admin = new Admin();
+            admin.candidateList();
+            admin.showCanditeName();
+         //admin.addCandidte(name, id, userName, phoneNumber, city, party_symbol,Electoral_program);
+         //admin.showCanditeName();
     }
     
 }

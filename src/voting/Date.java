@@ -5,10 +5,6 @@
  */
 package voting;
 
-/**
- *
- * @author mkost
- */
 public class Date {
     
 }

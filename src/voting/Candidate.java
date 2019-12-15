@@ -21,22 +21,38 @@ public class Candidate extends Person{
         return Electoral_program;
     }
 
-    public void setParty_symbol(String party_symbol) {
-        this.party_symbol = party_symbol;
-    }
-
-    public void setElectoral_program(String Electoral_program) {
-        this.Electoral_program = Electoral_program;
-    }
+   
     
    
     public  Candidate(){}
 
     public Candidate(String party_symbol, String Electoral_program) {
+   
         this.party_symbol = party_symbol;
         this.Electoral_program = Electoral_program;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    
    
     
 }
