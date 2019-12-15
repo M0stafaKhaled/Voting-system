@@ -46,7 +46,7 @@ public class Admin {
                 }
     
     }
-    public   ArrayList<String> candidateList(){
+    public   static ArrayList<String> candidateList(){
         
         Scanner x ;
         String filpath  = "ListOfCandite.txt";
@@ -87,7 +87,7 @@ public class Admin {
          return CandidatesName;
     }
     
-    public void showCanditeName(){
+    public static void showCanditeName(){
         
        
          candidateList().forEach((n) -> System.out.println(n)); 

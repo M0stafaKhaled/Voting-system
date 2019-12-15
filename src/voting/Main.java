@@ -50,11 +50,13 @@ public class Main {
 //Result result = new Result();
 //         System.out.println(result.getResult());
 //           
-    Admin admin = new Admin();
-            admin.candidateList();
-            admin.showCanditeName();
+//    Admin admin = new Admin();
+//            admin.candidateList();
+//            admin.showCanditeName();
          //admin.addCandidte(name, id, userName, phoneNumber, city, party_symbol,Electoral_program);
          //admin.showCanditeName();
+          Result result = new Result();
+          result.ShowResult();
     }
     
 }
