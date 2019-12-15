@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 
 public class VotingForm {
-    public void showCantidatesInfo(){
+    public void showCandidatesInfo(){
             
         
          Scanner x ;
@@ -17,7 +17,7 @@ public class VotingForm {
         String idOfUser = null ;
         String userNameOfUser ;
         String passwordOfUser = null ;
-        String  phoneNumerOfUser = null ;                  
+        String  phoneNumberOfUser = null ;                  
         String cityOfUser = null ;
         String  party_symbol,Electoral_program ; 
        // ArrayList<String> CandidatesName = new ArrayList<>();
@@ -33,7 +33,7 @@ public class VotingForm {
                 
                 userNameOfUser = x.next();
         
-                phoneNumerOfUser = x.next();
+                phoneNumberOfUser = x.next();
                 cityOfUser = x.next();
                 party_symbol = x.next();
                 Electoral_program = x.next();
