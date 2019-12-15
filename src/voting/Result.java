@@ -2,7 +2,6 @@ package voting;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -11,6 +10,7 @@ public class Result {
     Candidate candidate  ;
     private Scanner x ;
      int CandidteNumberOfVote =0 ; 
+     int maxValue ;
     
     public Result(Candidate candidate) {
         this.candidate = candidate;
@@ -25,6 +25,7 @@ public class Result {
        String filpath = "VotingList.txt";
        String voterId = "";
        String candidateName = "" ; 
+       CandidteNumberOfVote =0 ; 
         HashMap<String, String> hashMap = new HashMap();
          try {
             x = new Scanner(new File(filpath));
@@ -89,9 +90,7 @@ public class Result {
                 
             }
         
-       
-    
-    
+           
     }
         catch(FileNotFoundException e1){}
          return candidateVoted;
@@ -99,15 +98,25 @@ public class Result {
    public void ShowResult(){
    
         HashMap<String,Integer> candidateVoted =  candidateList();
-     
-       candidateVoted.forEach((key, value) -> System.out.println(key + " : " + value));
-
-
-   }
+       try {
    
-
-    
-            
-            
-            
+                  for (String key : candidateVoted.keySet()) {
+     candidateVoted.replace(key, getResultofCandidte(key)) ;
+                    
 }
+       } catch (Exception e) {
+       }
+         candidateVoted.forEach((key, value) -> System.out.println(key + " : " + value));
+          maxValue = 0;
+
+         for (Integer value : candidateVoted.values()) {
+                    if(value > maxValue){
+        maxValue = value;
+    }
+}
+         candidateVoted.forEach((key, value) -> {
+    if (value== maxValue) {
+        System.out.println(key + "  is Win");
+    }
+}); }     
+   }

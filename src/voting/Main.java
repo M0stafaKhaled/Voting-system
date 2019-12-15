@@ -56,7 +56,8 @@ public class Main {
          //admin.addCandidte(name, id, userName, phoneNumber, city, party_symbol,Electoral_program);
          //admin.showCanditeName();
           Result result = new Result();
-          result.ShowResult();
+         result.ShowResult();
+         //System.out.println(  result.getResultofCandidte("Mostafa"));
     }
     
 }
