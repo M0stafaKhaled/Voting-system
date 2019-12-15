@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 
 public class VotingForm {
-    public void showCantidatesInfo(){
+    public void showCandidatesInfo(){
             
         
          Scanner x ;
