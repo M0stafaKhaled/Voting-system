@@ -14,7 +14,6 @@ public class VoteDate {
     
  public void remnderTime(String currentDate){
  
- 
  	try {
 				String date2 = "2019/12/20";
 				String time1 = "11:00 AM";
@@ -33,22 +32,15 @@ public class VoteDate {
 	 
 				DecimalFormat crunchifyFormatter = new DecimalFormat("###,###");
 	 
-				// getTime() returns the number of milliseconds since January 1, 1970, 00:00:00 GMT represented by this Date object
+				
 				long diff = dateObj2.getTime() - dateObj1.getTime();
 	 
 				int diffDays = (int) (diff / (24 * 60 * 60 * 1000));
-				System.out.println("difference between days: " + diffDays);
+				System.out.println("Remainder days: " + diffDays);
 	 
 				int diffhours = (int) (diff / (60 * 60 * 1000));
-				System.out.println("difference between hours: " + crunchifyFormatter.format(diffhours));
+				System.out.println("Remainder hours: " + crunchifyFormatter.format(diffhours));
 	 
-				int diffmin = (int) (diff / (60 * 1000));
-				System.out.println("difference between minutues: " + crunchifyFormatter.format(diffmin));
-	 
-				int diffsec = (int) (diff / (1000));
-				System.out.println("difference between seconds: " + crunchifyFormatter.format(diffsec));
-	 
-				System.out.println("difference between milliseconds: " + crunchifyFormatter.format(diff));
 	 
 			} catch (Exception e) {
 				e.printStackTrace();
