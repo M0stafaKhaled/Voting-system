@@ -138,7 +138,8 @@ public final class Registeration {
 
    
 
-    public  void SignUp(String firstName ,String lastName, String id, String userName, String password, String phoneNumber, String city, String filePath , boolean Isvalidate ) {
+    public  void SignUp(String firstName ,String lastName, String id, String userName, 
+            String password, String phoneNumber, String city, String filePath , boolean Isvalidate ) {
             if(!Isvalidate) {}
             else {
                 try {

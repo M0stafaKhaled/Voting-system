@@ -23,12 +23,16 @@ public class Main {
          Electoral_program  = "Senate instantly made him the highest-ranking African American officeholder in the country";
        
          
-         
-          VoteDate vd = new VoteDate();
-      
-         vd.remnderTime();
-         
+//         
+//          VoteDate vd = new VoteDate();
+//      
+//         vd.remnderTime();
+
+//         
          // Start programe 
+         
+         VotingForm votingForm =   new VotingForm(); 
+         votingForm.showCandidatesInfo();
             int chooseUser =0 ;
         System.out.println("1-Admin \n2-Voter\nChoose:");
         if(sc.hasNextInt()) 
@@ -84,8 +88,6 @@ public class Main {
                     System.out.println("-----------------------");
                     System.out.println("Try Again! ");
                     System.out.println("-----------------------");
-
-                       
                        }
                        
                         System.out.println("1-Back to main list"

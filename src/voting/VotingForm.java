@@ -18,7 +18,9 @@ public class VotingForm {
         try {
             x = new Scanner(new File(filpath));
             x.useDelimiter("[,\n]");
+            int i = 1 ;
             while (x.hasNext()) {
+               
                 firstNameOfCandidte = x.next();
                 lasttNameOfCandidte = x.next();
                 idOfUser = x.next();
@@ -27,14 +29,16 @@ public class VotingForm {
                 cityOfUser = x.next();
                 party_symbol = x.next();
                 Electoral_program = x.next();
+                ////////////////////////////////////////////////////
                 System.out.println("---------------------------------------------");
-                System.out.println(
-                firstNameOfCandidte + "\n" 
-                + cityOfUser +"\n"
+                System.out.println( 
+                 "Candilit Number "+i+"\n"+
+                firstNameOfCandidte + "\n"+
+                lasttNameOfCandidte + "\n"  
                 + party_symbol+"\n"
                 +Electoral_program);
                 System.out.println("---------------------------------------------");
-        
+        i++;
     }
     
 }

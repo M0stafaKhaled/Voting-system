@@ -22,19 +22,74 @@ public class Admin {
         this.voteDate = voteDate;
     }
     public Admin (){}
-    public void setStartTime(String start){
-        if(voteDate.getStartaVotingDate() ==null )
-    voteDate.setStartaVotingDate(start);
-        else
-            System.out.println("it is ready seted");
+    ///////////////////////////////////////////////////
+    
+    public void Savedate(String startDate , String endDate){
+        
+        String filePath = "VoteDate.txt";
+     try {
+                    FileWriter fw = new FileWriter(filePath, true);
+                    BufferedWriter bufferedWriter = new BufferedWriter(fw);
+                    try (PrintWriter pw = new PrintWriter(bufferedWriter)) {
+                        pw.println(startDate + ","+endDate);
+                        pw.flush();
+                        
+                    }
+                    
+    
     }
-    public void setEndTime(String end){
-        if(voteDate.getEndOfVotingDate() == null)
+     catch(IOException e1){}
+    
+             }
+    
+    public void setStartTimeAndEndTime(String start , String end){
+        if(voteDate.getStartaVotingDate() == null ){
         voteDate.setEndOfVotingDate(end);
+        voteDate.setStartaVotingDate(start);
+            Savedate(start, end);
+
+        }
+       
+    
         else
             System.out.println("it is ready seted");
+    
     }
-
+    public  String getSartDate() throws FileNotFoundException{
+        
+                    String startDate = "";
+                    Scanner x; 
+                    String filpath = "VoteDate.txt";
+                     x = new Scanner(new File(filpath));
+            x.useDelimiter("[,\n]");
+      
+                
+                
+               return startDate = x.next();
+           
+            
+                    
+        } 
+    public  String getEndDate() throws FileNotFoundException{
+        
+                     String startDate = "";
+                    Scanner x; 
+                    String filpath = "VoteDate.txt";
+                     x = new Scanner(new File(filpath));
+             x.useDelimiter("[,\n]");
+      
+                
+                
+               return startDate = x.next();
+    
+    
+    }
+    
+     
+          
+       
+       
+    
     public  void addCandidte(String firstName ,String lastName, String id, String userName,  String phoneNumber, String city,String party_symbol, String Electoral_program){
     
     candidate = new Candidate(firstName,lastName, id, userName, phoneNumber, city, party_symbol, Electoral_program);
@@ -54,7 +109,9 @@ public class Admin {
                 }
     
     }
-    public   static ArrayList<String> candidateList(){
+    public  static  ArrayList<String> candidateList(){
+          ArrayList<String> CandidatesName = new ArrayList<>();
+
         Scanner x ;
         String  filpath  = "ListOfCandite.txt";
         String  firstNameOfCandidte = null ;
@@ -65,8 +122,7 @@ public class Admin {
         String  phoneNumerOfUser = null ;                  
         String  cityOfUser = null ;
         String  party_symbol,Electoral_program ; 
-        ArrayList<String> CandidatesName = new ArrayList<>();
-
+      
         try {
             x = new Scanner(new File(filpath));
             x.useDelimiter("[,\n]");
@@ -86,7 +142,6 @@ public class Admin {
         catch(FileNotFoundException e1){}
          return CandidatesName;
     }
-    
     public static void showCanditeName(){
         System.out.println("--------------------------------");
          candidateList().forEach((n) -> System.out.println(n)); 
@@ -102,7 +157,6 @@ public class Admin {
                 System.out.println("");
                 isLogin = true;
                 return isLogin;
-
             }
             else{
                     System.out.println("");
@@ -112,16 +166,14 @@ public class Admin {
         }
         return isLogin;
     }
-
     public String[] getUser_name() {
         return user_name;
     }
-
     public String[] getPassword() {
         return password;
     }
      
-    
+ 
 
   
     
