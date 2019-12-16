@@ -15,7 +15,7 @@ public class Admin {
     
     private Candidate candidate;
     private final String[] user_name = {"admin", "Admin",};
-    private final String[] password = {"admin", "Admin", "1"};
+    private final String[] password = {"admin", "Admin"};
     private VoteDate  voteDate ;
 
     public  void addCandidte(String firstName ,String lastName, String id, String userName,  String phoneNumber, String city,String party_symbol, String Electoral_program){
@@ -71,19 +71,26 @@ public class Admin {
     }
     
     public static void showCanditeName(){
-        
-       
+        System.out.println("--------------------------------");
          candidateList().forEach((n) -> System.out.println(n)); 
-    
+          System.out.println("--------------------------------");
     }
+    
      public boolean AdminIsLogIn(String username , String password) {
        boolean isLogin = false ; 
         for (int i = 0; i < getUser_name().length; i++) {
             if (username.equals(getUser_name()[i]) && password.equals(getPassword()[i])) {
                 System.out.println("-----------------------");
-                System.out.println("Welcome to Voting System" + username);
+                System.out.println("Welcome to Voting System " + username);
+                System.out.println("");
                 isLogin = true;
+                return isLogin;
 
+            }
+            else{
+                    System.out.println("");
+                    System.out.println("Password or username inValid");
+                    return isLogin;
             }
         }
         return isLogin;

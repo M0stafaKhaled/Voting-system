@@ -32,7 +32,65 @@ public class Main {
             switch(chooseUser){
             
             case 1:
-                
+                String AdminUserName , AdminPassword ;
+                boolean loginSuccess ;
+                int chooseOfCandidte = 0 ;
+                int x  =1;
+                   System.out.println("Enter your UserName :");
+                   AdminUserName =sc.next();
+                   System.out.println("Enter your Password :");
+                   AdminPassword = sc.next();
+                   Admin admin = new Admin();
+                   loginSuccess= admin.AdminIsLogIn(AdminUserName, AdminPassword);
+                   
+                   if(loginSuccess){
+                       do{
+                       System.out.println("-------------------------------------");
+                       System.out.println( "1- Set Voting time"
+                       +"\n2-show Candidtes Name " 
+                       +"\n3-Add Candite"
+                       +"\n4-Show Result"
+                       );
+                       System.out.println("-------------------------------------");
+                       System.out.println("choose the number of  method you want");
+                        if(sc.hasNextInt()) 
+                       chooseOfCandidte = sc.nextInt();
+                        
+                       switch(chooseOfCandidte){
+                       
+                       case 1:
+                           
+                           break;
+                           
+                           case 2:
+                              Admin.showCanditeName();
+                               break;
+                               
+                               case 3:
+                                   
+                                   break;
+                               case 4:
+                                   break;
+                                   
+                default:
+                    System.out.println("-----------------------");
+                    System.out.println("Try Again! ");
+                    System.out.println("-----------------------");
+
+                       
+                       }
+                       
+                        System.out.println("1-Back to main list"
+                    + "\n2-Exit");
+            System.out.println("-------------------------");
+
+                x = sc.nextInt();
+        } while (x == 1);
+        System.out.println("Thank You for using our Pharmacy System \nGood Luck!");;
+                   
+                  
+                   }
+                   
                 
                 break;
                 
