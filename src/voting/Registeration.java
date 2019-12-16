@@ -10,7 +10,8 @@ import java.util.regex.Pattern;
 
 
 public final class Registeration {
-    private String name;
+  private String firstName;
+  private String lastName;
     private String id;
     private String userName;
     private String password;
@@ -21,36 +22,29 @@ public final class Registeration {
     private  Scanner x ;
     private boolean  isLogin = false;
    
-    public Registeration(String name, String id, String userName, String password, String phoneNumber, String city, boolean isvaleted) {
-        this.name = name;
+    public Registeration(String firstName ,String lastName, String id, String userName, String password, String phoneNumber, String city, boolean isvaleted) {
+        this.firstName = 
         this.id = id;
         this.userName = userName;
         this.password = password;
         this.phoneNumber = phoneNumber;
         this.city = city;
-        SignUp(name, id, userName, password, phoneNumber, city, city, isvaleted);
+        SignUp(firstName,lastName, id, userName, password, phoneNumber, city, city, isvaleted);
     }
-    public Registeration(String loginterm , String Password , String filpath){
-    
-            login(loginterm, Password,filpath );
-    }
-    public  Registeration(){
-    
-    
-    }
-
+ 
     public Voter getVoter() {
         return voter;
     }
     
       
     
-     public boolean Isvalidate(String name, String id, String userName, String password, String phoneNumber, String city) {
+     public boolean Isvalidate( String firstName ,String lastName,String id, String userName, String password, String phoneNumber, String city) {
 
-        if (!valName(name)) {
-            System.out.println("Name is unvalied");
+        if (!valFirsName(firstName)) {
+            System.out.println("first name is unvalied");
             return false;
         }
+        if(!valLastName(lastName))
         if (!valID(id)) {
             System.out.println("ID is unvalied");
             return false;
@@ -82,9 +76,13 @@ public final class Registeration {
         return phoneNumber.charAt(0) == '0' && phoneNumber.charAt(1) == '1' && phoneNumber.length() == 11 && phoneNumber.matches("[0-9]+");
 
     }
-    public boolean valName(String name) {
+    public boolean valLastName(String lastName) {
 
-        return Pattern.matches("[a-zA-Z]+{3,6}", name);
+        return Pattern.matches("[a-zA-Z]+{3,6}", lastName);
+    }
+  public boolean valFirsName(String firstName) {
+
+        return Pattern.matches("[a-zA-Z]+{3,6}", firstName);
     }
 
     public boolean valUserName(String userName) {
@@ -138,7 +136,7 @@ public final class Registeration {
 
    
 
-    public  void SignUp(String name, String id, String userName, String password, String phoneNumber, String city, String filePath , boolean Isvalidate ) {
+    public  void SignUp(String firstName ,String lastName, String id, String userName, String password, String phoneNumber, String city, String filePath , boolean Isvalidate ) {
             if(!Isvalidate) {
                 
                 
@@ -149,7 +147,7 @@ public final class Registeration {
                     FileWriter fw = new FileWriter(filePath, true);
                     BufferedWriter bufferedWriter = new BufferedWriter(fw);
                     try (PrintWriter pw = new PrintWriter(bufferedWriter)) {
-                        pw.println(id + "," + name + "," + userName + "," + password + "," + phoneNumber + "," + city);
+                        pw.println(firstName +"," + lastName+  "," + id+"," + userName + "," + password + "," + phoneNumber + "," + city);
                         pw.flush();
                         login(userName, password, filePath);
                     }
@@ -174,9 +172,7 @@ public final class Registeration {
             x = new Scanner(new File(filpath));
             x.useDelimiter("[,\n]");
 
-            while (x.hasNext()) {
-
-                
+            while (x.hasNext()) {   
                 idOfUser = x.next();
                 nameOfUser = x.next();
                 userNameOfUser = x.next();

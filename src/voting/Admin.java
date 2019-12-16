@@ -18,15 +18,15 @@ public class Admin {
     private final String[] password = {"admin", "Admin", "1"};
     private VoteDate  voteDate ;
 
-    public  void addCandidte(String name, String id, String userName,  String phoneNumber, String city,String party_symbol, String Electoral_program){
+    public  void addCandidte(String firstName ,String lastName, String id, String userName,  String phoneNumber, String city,String party_symbol, String Electoral_program){
     
-    candidate = new Candidate(name, id, userName, phoneNumber, city, party_symbol, Electoral_program);
+    candidate = new Candidate(firstName,lastName, id, userName, phoneNumber, city, party_symbol, Electoral_program);
         String filePath = "ListOfCandite.txt";
     try {
                     FileWriter fw = new FileWriter(filePath, true);
                     BufferedWriter bufferedWriter = new BufferedWriter(fw);
                     try (PrintWriter pw = new PrintWriter(bufferedWriter)) {
-                        pw.println(name + "," + id + "," + userName + "," +   phoneNumber + "," + city + "," + party_symbol + "," + Electoral_program);
+                        pw.println(firstName +   "," + lastName +  ","+ id + "," + userName + "," +   phoneNumber + "," + city + "," + party_symbol + "," + Electoral_program);
                         pw.flush();
                         
                     }
@@ -74,7 +74,7 @@ public class Admin {
          candidateList().forEach((n) -> System.out.println(n)); 
     
     }
-     public boolean Admin_LogIn(String username , String password) {
+     public boolean AdminIsLogIn(String username , String password) {
        boolean isLogin = false ; 
         for (int i = 0; i < getUser_name().length; i++) {
             if (username.equals(getUser_name()[i]) && password.equals(getPassword()[i])) {

@@ -1,3 +1,3 @@
-khaled,27010200202071,khaled22,01500000006,cairo,pipe,Senate instantly made him the highest-ranking African American officeholder in the country
-Amr,27010200202071,khaled22,01500000006,cairo,pipe,Senate instantly made him the highest-ranking African American officeholder in the country
-Mostafa,27010200202071,khaled22,01500000006,cairo,pipe,Senate instantly made him the highest-ranking African American officeholder in the country
+khaled,Samer,27010200202071,khaled22,01500000006,cairo,pipe,Senate instantly made him the highest-ranking African American officeholder in the country
+Amr,Khaled,27010200202071,khaled22,01500000006,cairo,pipe,Senate instantly made him the highest-ranking African American officeholder in the country
+Mostafa,Omar,27010200202071,khaled22,01500000006,cairo,pipe,Senate instantly made him the highest-ranking African American officeholder in the country
