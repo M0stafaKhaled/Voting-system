@@ -1,7 +1,9 @@
 
 package voting;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -20,6 +22,13 @@ public class Main {
          party_symbol = "pipe";
          Electoral_program  = "Senate instantly made him the highest-ranking African American officeholder in the country";
        
+         SimpleDateFormat  l = new SimpleDateFormat("yyy/MM/dd");
+         Date d = new Date();
+         VoteDate vd = new VoteDate();
+         String currentDate = l.format(d);
+         System.out.println(currentDate);
+         vd.remnderTime(currentDate);
+         
          // Start programe 
             int chooseUser =0 ;
         System.out.println("1-Admin \n2-Voter\nChoose:");
@@ -31,9 +40,9 @@ public class Main {
         
             switch(chooseUser){
             
-            case 1:
+            case 1: // if he is admin 
                 String AdminUserName , AdminPassword ;
-                boolean loginSuccess ;
+                boolean loginSuccess ; 
                 int chooseOfCandidte = 0 ;
                 int status =1;
                    System.out.println("Enter your UserName :");
@@ -42,7 +51,7 @@ public class Main {
                    AdminPassword = sc.next();
                    Admin admin = new Admin();
                    loginSuccess= admin.AdminIsLogIn(AdminUserName, AdminPassword);
-                   
+                   //to cheack he login sucess 
                    if(loginSuccess){
                        do{
                        System.out.println("-------------------------------------");

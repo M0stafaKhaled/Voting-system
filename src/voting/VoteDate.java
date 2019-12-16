@@ -12,16 +12,17 @@ import java.util.Date;
  */
 public class VoteDate {
     
- public void remnderTime(){
+ public void remnderTime(String currentDate){
  
  
  	try {
-				String date1 = "07/15/2016";
+				String date2 = "2019/12/20";
 				String time1 = "11:00 AM";
-				String date2 = "07/17/2016";
+				//String date2 = "12/20/2019";
+                                String date1= currentDate;
 				String time2 = "12:15 AM";
 	 
-				String format = "MM/dd/yyyy hh:mm a";
+				String format = "yyy/MM/dd hh:mm a";
 	 
 				SimpleDateFormat sdf = new SimpleDateFormat(format);
 	 
