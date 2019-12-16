@@ -14,6 +14,7 @@ import java.util.Scanner;
 public class Admin {
     
     private Candidate candidate;
+    private Result result; 
     private final String[] user_name = {"admin", "Admin",};
     private final String[] password = {"admin", "Admin"};
     private VoteDate  voteDate ;
@@ -23,6 +24,10 @@ public class Admin {
     }
     public Admin (){}
     ///////////////////////////////////////////////////
+
+    public Admin(Result result) {
+        this.result = result;
+    }
     
     public void Savedate(String startDate , String endDate){
         
@@ -173,6 +178,11 @@ public class Admin {
         return password;
     }
      
+    public void showResult(){
+    
+            result.ShowResult();
+    
+    }
  
 
   

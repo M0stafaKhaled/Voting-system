@@ -54,7 +54,8 @@ public class Result {
         
         Scanner x ;
         String filpath  = "ListOfCandite.txt";
-        String nameOfUser = null ;
+       String firstNameOfCandidate = null ;
+       String lasstNameOfCandite = null ;
         String idOfUser = null ;
         String userNameOfUser ;
         String passwordOfUser = null ;
@@ -69,14 +70,15 @@ public class Result {
 
             while (x.hasNext()) {
 
-                nameOfUser = x.next();
+                firstNameOfCandidate = x.next();
+                lasstNameOfCandite = x.next();
                 idOfUser = x.next();   
                 userNameOfUser = x.next();
                 phoneNumerOfUser = x.next();
                 cityOfUser = x.next();
                 party_symbol = x.next();
                 Electoral_program = x.next();
-                candidateVoted.put(nameOfUser, 0);
+                candidateVoted.put(firstNameOfCandidate, 0);
                 
             } 
     }
@@ -89,10 +91,12 @@ public class Result {
        try {
    
                   for (String key : candidateVoted.keySet()) {
-     candidateVoted.replace(key, getResultofCandidte(key)) ;
+                    candidateVoted.replace(key, getResultofCandidte(key)) ;
                     
 }
        } catch (Exception e) {
+           
+           
        }
          candidateVoted.forEach((key, value) -> System.out.println(key + " : " + value));
           maxValue = 0;
