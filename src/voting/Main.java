@@ -35,7 +35,7 @@ public class Main {
                 String AdminUserName , AdminPassword ;
                 boolean loginSuccess ;
                 int chooseOfCandidte = 0 ;
-                int x  =1;
+                int status =1;
                    System.out.println("Enter your UserName :");
                    AdminUserName =sc.next();
                    System.out.println("Enter your Password :");
@@ -84,14 +84,13 @@ public class Main {
                     + "\n2-Exit");
             System.out.println("-------------------------");
 
-                x = sc.nextInt();
-        } while (x == 1);
-        System.out.println("Thank You for using our Pharmacy System \nGood Luck!");;
-                   
-                  
+                status = sc.nextInt();
+        } while (status == 1);
+        System.out.println("Thank You for using our Pharmacy System \nGood Luck!");
+        System.exit(status);
                    }
                    
-                
+                   
                 break;
                 
                 case 2:
