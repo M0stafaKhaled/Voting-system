@@ -18,6 +18,23 @@ public class Admin {
     private final String[] password = {"admin", "Admin"};
     private VoteDate  voteDate ;
 
+    public Admin(VoteDate voteDate) {
+        this.voteDate = voteDate;
+    }
+    public Admin (){}
+    public void setStartTime(String start){
+        if(voteDate.getStartaVotingDate() ==null )
+    voteDate.setStartaVotingDate(start);
+        else
+            System.out.println("it is ready seted");
+    }
+    public void setEndTime(String end){
+        if(voteDate.getEndOfVotingDate() == null)
+        voteDate.setEndOfVotingDate(end);
+        else
+            System.out.println("it is ready seted");
+    }
+
     public  void addCandidte(String firstName ,String lastName, String id, String userName,  String phoneNumber, String city,String party_symbol, String Electoral_program){
     
     candidate = new Candidate(firstName,lastName, id, userName, phoneNumber, city, party_symbol, Electoral_program);

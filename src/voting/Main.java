@@ -22,12 +22,11 @@ public class Main {
          party_symbol = "pipe";
          Electoral_program  = "Senate instantly made him the highest-ranking African American officeholder in the country";
        
-         SimpleDateFormat  l = new SimpleDateFormat("yyy/MM/dd");
-         Date d = new Date();
-         VoteDate vd = new VoteDate();
-         String currentDate = l.format(d);
-         System.out.println(currentDate);
-         vd.remnderTime(currentDate);
+         
+         
+          VoteDate vd = new VoteDate();
+      
+         vd.remnderTime();
          
          // Start programe 
             int chooseUser =0 ;
