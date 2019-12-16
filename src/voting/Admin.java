@@ -14,20 +14,10 @@ import java.util.Scanner;
 public class Admin {
     
     private Candidate candidate;
-    private final  String userName ;
-    private final  String password ;
-   private VoteDate  voteDate ;
+    private final String[] user_name = {"admin", "Admin",};
+    private final String[] password = {"admin", "Admin", "1"};
+    private VoteDate  voteDate ;
 
-    public Admin(String userName, String password) {
-        this.userName = userName;
-        this.password = password;
-    }
-
-    public Admin() {
-        this.userName = null;
-        this.password = null;
-    }
-    
     public  void addCandidte(String name, String id, String userName,  String phoneNumber, String city,String party_symbol, String Electoral_program){
     
     candidate = new Candidate(name, id, userName, phoneNumber, city, party_symbol, Electoral_program);
@@ -48,7 +38,6 @@ public class Admin {
     
     }
     public   static ArrayList<String> candidateList(){
-        
         Scanner x ;
         String filpath  = "ListOfCandite.txt";
         String nameOfUser = null ;
@@ -65,24 +54,15 @@ public class Admin {
             x.useDelimiter("[,\n]");
 
             while (x.hasNext()) {
-
                 nameOfUser = x.next();
                 idOfUser = x.next();
-                
                 userNameOfUser = x.next();
-        
                 phoneNumerOfUser = x.next();
                 cityOfUser = x.next();
                 party_symbol = x.next();
                 Electoral_program = x.next();
-                
                 CandidatesName.add(nameOfUser);
-                
             }
-        
-       
-    
-    
     }
         catch(FileNotFoundException e1){}
          return CandidatesName;
@@ -94,6 +74,27 @@ public class Admin {
          candidateList().forEach((n) -> System.out.println(n)); 
     
     }
+     public boolean Admin_LogIn(String username , String password) {
+       boolean isLogin = false ; 
+        for (int i = 0; i < getUser_name().length; i++) {
+            if (username.equals(getUser_name()[i]) && password.equals(getPassword()[i])) {
+                System.out.println("-----------------------");
+                System.out.println("Welcome to Voting System" + username);
+                isLogin = true;
+
+            }
+        }
+        return isLogin;
+    }
+
+    public String[] getUser_name() {
+        return user_name;
+    }
+
+    public String[] getPassword() {
+        return password;
+    }
+     
     
 
   
