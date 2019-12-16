@@ -16,6 +16,7 @@ public class Admin {
     private Candidate candidate;
     private final  String userName ;
     private final  String password ;
+   private VoteDate  voteDate ;
 
     public Admin(String userName, String password) {
         this.userName = userName;

@@ -18,6 +18,7 @@ public class Main {
          city = "cairo";
          party_symbol = "pipe";
          Electoral_program  = "Senate instantly made him the highest-ranking African American officeholder in the country";
+       
          
 //             String filepath  = "voter.txt";
 // 
@@ -55,8 +56,9 @@ public class Main {
 //            admin.showCanditeName();
          //admin.addCandidte(name, id, userName, phoneNumber, city, party_symbol,Electoral_program);
          //admin.showCanditeName();
-          Result result = new Result();
-         result.ShowResult();
+//          Result result = new Result();
+//         result.ShowResult();
+//         
          //System.out.println(  result.getResultofCandidte("Mostafa"));
     }
     

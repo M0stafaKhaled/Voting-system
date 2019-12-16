@@ -14,14 +14,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 public class Vote {
         
-          private Date timeOfVoting;
+         //private Date timeOfVoting;
           public String  VoterID;
           public String  CandidateName ;
           private Scanner x ;
-    
+    private  VotingForm form ; 
 
     public void addVote(HashMap<String,String> VoteList,String VoterID,String CandidateName){
-                if(!(hasVote(VoteList, VoterID))){
+                if(!(hasVote(VoteList, VoterID))){ 
               String  filePath = "VotingList.txt";
             VoteList.put(VoterID, CandidateName);
              try {
@@ -39,6 +39,8 @@ public class Vote {
                     }
                 }
                 else{
+                    
+                    System.out.println("you already voted");
                 }
     }
     public boolean hasVote(HashMap<String,String>List ,String VoterId){  
