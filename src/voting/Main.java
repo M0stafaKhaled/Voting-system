@@ -17,18 +17,7 @@ public class Main {
         //System.out.println(r.getResultofCandidte("Amr"));
        //r.ShowResult();
         String fristName, lastName, id, userName, password, phoneNumber, city, party_symbol, Electoral_program;
-
-//         id ="27010200202071";
-//        fristName = "Omar";
-//        lastName = "khaled";
-//         password = "253332Mm4";
-//         userName = "khaled22";
-//         phoneNumber = "01500000006";
-//         city = "cairo";
-//         party_symbol = "pipe";
-//         Electoral_program  = "Senate instantly made him the highest-ranking African American officeholder in the country";
-//         
-//         
+        
 //          VoteDate vd = new VoteDate();
 //      
 //         vd.remnderTime();
@@ -108,15 +97,10 @@ public class Main {
                                 admin.addCandidte(fristName, lastName, id, userName, phoneNumber, city, party_symbol, Electoral_program);
                                 break;
                             case 4:
-                                Result result = new Result();
-                                Admin  a= new Admin(result);
-                                a.showResult();
-                                try {
-                                    
-                                     a.showResult();
-                                } catch (Exception e) {
-                                }
                                
+                                Admin  a= new Admin(r);
+                                a.showResult();
+                                
                                 break;
 
                             default:
@@ -138,6 +122,56 @@ public class Main {
                 break;
 
             case 2:
+                int chooseOfVoter = 0  ;
+                System.out.println("-----------------------------------");
+                
+                System.out.println("1-create new account \n2-login \nChoose:");
+                
+                chooseOfCandidte = sc.nextInt();
+                
+                 System.out.println("-----------------------------------");
+                
+                switch(chooseOfVoter)
+                {
+                
+                case 1:
+                                System.out.println("Enter FristName : ");
+                                fristName = sc.next();
+                                System.out.println("Enter LastName : ");
+                                lastName = sc.next();
+                                System.out.println("Enter ID :");
+                                id = sc.next();
+                                 System.out.println("Enter Password : ");
+                                password = sc.next();
+                                id = sc.next();
+                                System.out.println("Enter UserName : ");
+                                userName = sc.next();
+                                System.out.println("Enter PhoneNumber :");
+                                phoneNumber = sc.next();
+                                System.out.println("Enter City : ");
+                                city = sc.next();
+                            
+                    
+                case 2 :
+                String filepath = "Voter.txt"  ; 
+                boolean isLoginsuccess ; 
+                System.out.println("Enter your UserName or ID :");
+                userName = sc.next();
+                System.out.println("Enter your Password :");
+                password = sc.next();
+                Registeration registeration = new Registeration();
+               registeration.login(userName, password, filepath);
+               isLoginsuccess = registeration.isIsLogin();
+               if(isLoginsuccess){
+               
+               
+               
+               }
+                    
+                }
+                    
+                    
+                    
                 break;
 
         }

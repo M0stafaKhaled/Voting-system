@@ -108,7 +108,7 @@ public class Result {
 }
          candidateVoted.forEach((key, value) -> {
     if (value== maxValue) {
-        System.out.println(key + "  is Win");
+        System.out.println(key + "  has the most vote");
     }
 }); }     
    }
