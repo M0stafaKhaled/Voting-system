@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Result {
     
     Candidate candidate  ;
-    private Scanner x ;
+     private Scanner x ;
      int CandidteNumberOfVote =0 ; 
      int maxValue ;
     
@@ -19,7 +19,6 @@ public class Result {
     Result() {
         
     }
-     
    public int getResultofCandidte(String currenCandidteNmae){
    
        String filpath = "VotingList.txt";
@@ -37,13 +36,10 @@ public class Result {
              }
              x.close();
                 hashMap.keySet().stream().map((key) -> {
-             // System.out.println("key : " + key);
              return key;
          }).forEachOrdered((key) -> {
              if(hashMap.get(key).contains(currenCandidteNmae))
-                 CandidteNumberOfVote++ ;
-             
-             //System.out.println("value : " + hashMap.get(key));
+                 CandidteNumberOfVote++ ;         
          });
      
          }
@@ -54,9 +50,6 @@ public class Result {
            
    return CandidteNumberOfVote;
    }
-   
-   
-   
      public   HashMap<String,Integer> candidateList(){
         
         Scanner x ;
@@ -77,20 +70,15 @@ public class Result {
             while (x.hasNext()) {
 
                 nameOfUser = x.next();
-                idOfUser = x.next();
-                
+                idOfUser = x.next();   
                 userNameOfUser = x.next();
-        
                 phoneNumerOfUser = x.next();
                 cityOfUser = x.next();
                 party_symbol = x.next();
                 Electoral_program = x.next();
-                
                 candidateVoted.put(nameOfUser, 0);
                 
-            }
-        
-           
+            } 
     }
         catch(FileNotFoundException e1){}
          return candidateVoted;

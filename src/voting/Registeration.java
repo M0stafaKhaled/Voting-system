@@ -31,13 +31,15 @@ public final class Registeration {
         this.city = city;
         SignUp(firstName,lastName, id, userName, password, phoneNumber, city, city, isvaleted);
     }
- 
+    public Registeration(String loginterm , String Password , String filpath){
+    
+            login(loginterm, Password,filpath );
+    }
+    public  Registeration(){}
+
     public Voter getVoter() {
         return voter;
-    }
-    
-      
-    
+    }  
      public boolean Isvalidate( String firstName ,String lastName,String id, String userName, String password, String phoneNumber, String city) {
 
         if (!valFirsName(firstName)) {
@@ -137,11 +139,7 @@ public final class Registeration {
    
 
     public  void SignUp(String firstName ,String lastName, String id, String userName, String password, String phoneNumber, String city, String filePath , boolean Isvalidate ) {
-            if(!Isvalidate) {
-                
-                
-        } 
-            
+            if(!Isvalidate) {}
             else {
                 try {
                     FileWriter fw = new FileWriter(filePath, true);
@@ -167,11 +165,9 @@ public final class Registeration {
         String passwordOfUser = null ;
         String  phoneNumerOfUser = null ;                  
         String cityOfUser = null ;
-
         try {
             x = new Scanner(new File(filpath));
             x.useDelimiter("[,\n]");
-
             while (x.hasNext()) {   
                 idOfUser = x.next();
                 nameOfUser = x.next();
@@ -181,7 +177,6 @@ public final class Registeration {
                 cityOfUser = x.next();
                 if (idOfUser.equals(SearchTerm) || userNameOfUser.equals(SearchTerm)) {
                     found = true;
-
                 }
             }
             if(found){
@@ -189,20 +184,18 @@ public final class Registeration {
                     System.out.println("Incorrect password");
                 }
                 else {
-                 
                       isLogin = true;    
                     System.out.println(voter.getVoterData());
-                   
                 } 
             }
             else{
                     System.out.println("Incorrect username");
-            
             }
             
 
-        } catch (FileNotFoundException e) {
         }
+        catch (FileNotFoundException e) {}
+        
 
        
     }

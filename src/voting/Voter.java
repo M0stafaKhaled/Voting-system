@@ -27,6 +27,37 @@ public final class Voter extends Person{
         return VoterData;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public Vote getVote() {
+        return vote;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+    public String getUserName() {
+        return userName;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
     
     
         

@@ -3,7 +3,8 @@ package voting;
 
 public abstract class Person {
 
-    protected String name;
+    protected String firstName;
+    protected  String  lastName;
     protected String id;
     protected String userName;
     protected String phoneNumber;
@@ -11,8 +12,9 @@ public abstract class Person {
    
     
 
-  public Person(String name, String id, String userName, String phoneNumber, String city) {
-        this.name = name;
+  public Person(String firstName ,String lastName, String id, String userName, String phoneNumber, String city) {
+        this.firstName = firstName ; 
+        this.lastName = lastName;
         this.id = id;
         this.userName = userName;
         this.phoneNumber = phoneNumber;
@@ -21,11 +23,15 @@ public abstract class Person {
     public Person() {
     }
 
-    @Override
-    public String toString() {
-        return "Person{" + "name=" + name + ", id=" + id + ", userName=" + userName + ", phoneNumber=" + phoneNumber + ", city=" + city + '}';
+    public Person(String firstName, String lastName, String id, String phoneNumber, String city) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.id = id;
+        this.phoneNumber = phoneNumber;
+        this.city = city;
     }
-         
+
+   
   
    
     

@@ -8,17 +8,40 @@ import java.util.Scanner;
 public class Main {
      public static void main(String[] args) throws IOException {
          Scanner sc = new Scanner(System.in);
-         String name , id , userName , password   , phoneNumber, city , party_symbol , Electoral_program ; 
+         String fristName,lastName , id , userName , password   , phoneNumber, city , party_symbol , Electoral_program ; 
          
-     id ="27010200202071";
-         name = "khaled";
-//         password = "253332Mm4";
+         id ="27010200202071";
+        fristName = "Omar";
+        lastName = "khaled";
+         password = "253332Mm4";
          userName = "khaled22";
          phoneNumber = "01500000006";
          city = "cairo";
          party_symbol = "pipe";
          Electoral_program  = "Senate instantly made him the highest-ranking African American officeholder in the country";
        
+         // Start programe 
+            int chooseUser =0 ;
+        System.out.println("1-Admin \n2-Voter\nChoose:");
+        if(sc.hasNextInt()) 
+              chooseUser = sc.nextInt();
+        else 
+             System.err.println("please enter number");
+        
+        
+            switch(chooseUser){
+            
+            case 1:
+                
+                
+                break;
+                
+                case 2:
+                    break;
+            
+            }
+         
+         
          
 //             String filepath  = "voter.txt";
 // 

@@ -39,13 +39,14 @@ public class Admin {
     }
     public   static ArrayList<String> candidateList(){
         Scanner x ;
-        String filpath  = "ListOfCandite.txt";
-        String nameOfUser = null ;
-        String idOfUser = null ;
-        String userNameOfUser ;
-        String passwordOfUser = null ;
+        String  filpath  = "ListOfCandite.txt";
+        String  firstNameOfCandidte = null ;
+        String lasttNameOfCandidte = null ;
+        String  idOfUser = null ;
+        String  userNameOfUser ;
+        String  passwordOfUser = null ;
         String  phoneNumerOfUser = null ;                  
-        String cityOfUser = null ;
+        String  cityOfUser = null ;
         String  party_symbol,Electoral_program ; 
         ArrayList<String> CandidatesName = new ArrayList<>();
 
@@ -54,14 +55,15 @@ public class Admin {
             x.useDelimiter("[,\n]");
 
             while (x.hasNext()) {
-                nameOfUser = x.next();
+                firstNameOfCandidte = x.next();
+                lasttNameOfCandidte = x.next();
                 idOfUser = x.next();
                 userNameOfUser = x.next();
                 phoneNumerOfUser = x.next();
                 cityOfUser = x.next();
                 party_symbol = x.next();
                 Electoral_program = x.next();
-                CandidatesName.add(nameOfUser);
+                CandidatesName.add(firstNameOfCandidte);
             }
     }
         catch(FileNotFoundException e1){}
