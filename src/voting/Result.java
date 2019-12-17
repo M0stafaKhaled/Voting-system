@@ -89,7 +89,6 @@ public class Result {
    
         HashMap<String,Integer> candidateVoted =  candidateList();
        try {
-   
                   for (String key : candidateVoted.keySet()) {
                     candidateVoted.replace(key, getResultofCandidte(key)) ;
                     
@@ -108,7 +107,7 @@ public class Result {
 }
          candidateVoted.forEach((key, value) -> {
     if (value== maxValue) {
-        System.out.println(key + "  has the most vote");
+        System.out.println(key + " has most of the vote ");
     }
 }); }     
 
