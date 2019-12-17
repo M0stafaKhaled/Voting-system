@@ -78,11 +78,26 @@ public class VotingForm {
         
     }
             
-            System.out.println("enter the number of Candidate you want to vote");
-           chosenCandidate = sc.nextInt();
-           
+            System.out.println("enter the number of Candidate you want to vote"); 
             
 }
         catch(FileNotFoundException r){}
     }
+    
+    
+    
+    public String getCandidateName(int numberOfchoosenCandidate){
+        
+                
+            ArrayList<String>  candidateName =  candidateList();
+            if(candidateName.size() <numberOfchoosenCandidate)
+                return  null ;
+            
+          return candidateName.get(numberOfchoosenCandidate-1);
+        
+   
+    
+    
+    }
+    
 }

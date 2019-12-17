@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class Admin implements EndTimeOfVoteing{
+public class Admin{
     
     private Candidate candidate;
     private Result result; 
@@ -184,10 +184,6 @@ public class Admin implements EndTimeOfVoteing{
     
     }
 
-    @Override
-    public boolean EndTimeOfVoteing() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
  
 
   

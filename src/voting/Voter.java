@@ -3,7 +3,7 @@ package voting;
 import java.util.HashMap;
 import java.util.Map;
 
-public final class Voter extends Person implements EndTimeOfVoteing{
+public final class Voter extends Person {
               private String VoterData ;
               private String password;
               private String id;
@@ -20,7 +20,7 @@ public final class Voter extends Person implements EndTimeOfVoteing{
                 vote.addVote((HashMap<String, String>) VoteList, this.id, CandidateName);
    
    }
-     public void editeVote(){}
+  
      public void removeVote(){}
 
     public String getVoterData() {
@@ -58,12 +58,7 @@ public final class Voter extends Person implements EndTimeOfVoteing{
         return city;
     }
 
-    @Override
-    public boolean EndTimeOfVoteing() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    
+   
     
         
 

@@ -9,7 +9,7 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 
-public final class Registeration implements  EndTimeOfVoteing{
+public final class Registeration {
   private String firstName;
   private String lastName;
     private String id;
@@ -22,14 +22,14 @@ public final class Registeration implements  EndTimeOfVoteing{
     private  Scanner x ;
     private boolean  isLogin = false;
    
-    public Registeration(String firstName ,String lastName, String id, String userName, String password, String phoneNumber, String city, boolean isvaleted) {
+    public Registeration(String firstName ,String lastName, String id, String userName, String password, String phoneNumber, String city) {
         this.firstName = 
         this.id = id;
         this.userName = userName;
         this.password = password;
         this.phoneNumber = phoneNumber;
         this.city = city;
-        SignUp(firstName,lastName, id, userName, password, phoneNumber, city, city, isvaleted);
+       
     }
     public Registeration(String loginterm , String Password , String filpath){
     
@@ -128,6 +128,13 @@ public final class Registeration implements  EndTimeOfVoteing{
 
         return Pattern.matches("[a-zA-Z]+", city);
     }
+    
+    public boolean isRegiestedBefore(){
+    
+        String  filepatht = "Voter.txt"; 
+        
+    return false ;
+    }
 
     public boolean valID(String id) {
         if (!Pattern.matches("[0-9]+", id)) {
@@ -148,7 +155,7 @@ public final class Registeration implements  EndTimeOfVoteing{
                     try (PrintWriter pw = new PrintWriter(bufferedWriter)) {
                         pw.println(firstName +"," + lastName+  "," + id+"," + userName + "," + password + "," + phoneNumber + "," + city);
                         pw.flush();
-                        login(userName, password, filePath);
+                       
                     }
                     
                 } catch (IOException e) {
@@ -205,9 +212,6 @@ public final class Registeration implements  EndTimeOfVoteing{
         return isLogin;
     }
 
-    @Override
-    public boolean EndTimeOfVoteing() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
     
 }

@@ -14,6 +14,9 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         Result r = new Result();
         
+       
+       
+       
         //System.out.println(r.getResultofCandidte("Amr"));
        //r.ShowResult();
         String fristName, lastName, id, userName, password, phoneNumber, city, party_symbol, Electoral_program;
@@ -67,13 +70,13 @@ public class Main {
 
                             case 1:
                                 String startDate,
-                                 endDate;
+                                endDate;
                                 System.out.println("Enter Start Date of voting");
                                 startDate = sc.next();
+                                System.out.println("Enter End End Date");
                                 endDate = sc.next();
-
                                 break;
-                            case 2:
+                              case 2:
                                 Admin.showCanditeName();
                                 break;
 
@@ -127,14 +130,15 @@ public class Main {
                 
                 System.out.println("1-create new account \n2-login \nChoose:");
                 
-                chooseOfCandidte = sc.nextInt();
+                chooseOfVoter = sc.nextInt();
                 
                  System.out.println("-----------------------------------");
-                
+               
                 switch(chooseOfVoter)
                 {
                 
                 case 1:
+                                
                                 System.out.println("Enter FristName : ");
                                 fristName = sc.next();
                                 System.out.println("Enter LastName : ");
@@ -142,19 +146,29 @@ public class Main {
                                 System.out.println("Enter ID :");
                                 id = sc.next();
                                  System.out.println("Enter Password : ");
-                                password = sc.next();
-                                id = sc.next();
+                                password = sc.next(); 
                                 System.out.println("Enter UserName : ");
                                 userName = sc.next();
                                 System.out.println("Enter PhoneNumber :");
                                 phoneNumber = sc.next();
                                 System.out.println("Enter City : ");
                                 city = sc.next();
+                                
+                               Registeration re = new Registeration(fristName, lastName, id, userName, password, phoneNumber, city);
+                               boolean success = re.Isvalidate(fristName, lastName, id, userName, password, phoneNumber, city);
+                               
+                             if(success){
+                             
+                                re.SignUp(fristName, lastName, id, userName, password, phoneNumber, city, "Voter.txt", success);
+                                 System.out.println("done");
+                             }
+                                break;
                             
                     
                 case 2 :
                 String filepath = "Voter.txt"  ; 
-                boolean isLoginsuccess ; 
+                boolean isLoginsuccess ;
+                int option ;
                 System.out.println("Enter your UserName or ID :");
                 userName = sc.next();
                 System.out.println("Enter your Password :");
@@ -163,8 +177,32 @@ public class Main {
                registeration.login(userName, password, filepath);
                isLoginsuccess = registeration.isIsLogin();
                if(isLoginsuccess){
-               
-               
+                    
+                   
+                   System.out.println("1-Add vote\n 2-Delete Vote");
+                   option = sc.nextInt();
+                   switch(option){
+                   
+                   case 1:
+                       int getNumberOfcandidate ;
+                       String candidteName;
+                       VotingForm v = new VotingForm();
+                       v.showCandidatesInfo();
+                       getNumberOfcandidate = sc.nextInt();
+                       
+                        candidteName =  v.getCandidateName(getNumberOfcandidate);
+                        if(!(candidteName == null)){
+                        
+                        
+                        
+                        }
+                       break;
+                       
+                       case 2:
+                           
+                           break;
+                   
+                   }
                
                }
                     
