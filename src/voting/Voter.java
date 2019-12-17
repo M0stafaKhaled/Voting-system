@@ -4,40 +4,31 @@ import java.util.HashMap;
 import java.util.Map;
 
 public final class Voter extends Person {
-              private String VoterData ;
               private String password;
               private String id;
-              private Vote vote;
+              private final Vote vote = new Vote();
    
           
-    public Voter(String FirstName, String LastName, String ID,String username ,String password, String phoneNumber, String city,Vote vote) {
-               super(FirstName, LastName,ID , username , phoneNumber , city);
-                this.vote = vote;
-                   VoterData=  FirstName + " " + LastName+ " "+ ID +" "+ username  +" "+ password +" "+ phoneNumber +" "+ city;
-                   
-    }
+  
     public Voter(String FirstName, String LastName, String ID,String username ,String password, String phoneNumber, String city) {
+        
               super(FirstName, LastName,ID , username , phoneNumber , city);
-                   VoterData=  FirstName + " " + LastName+ " "+ ID +" "+ username  +" "+ password +" "+ phoneNumber +" "+ city;
+               this.id = ID;
+               this.password = password;
+                  
                    
     }
-   public void Suvote(Map<String,String>VoteList , String CandidateName){
-                vote.addVote((HashMap<String, String>) VoteList, this.id, CandidateName);
+   public void submitvote(String CandidateName){
+                vote.addVote(this.id, CandidateName);
    
    }
   
      public void removeVote(){}
 
-    public String getVoterData() {
-        return VoterData;
-    }
-
-    public String getPassword() {
-        return password;
-    }
+    
 
     public String getId() {
-        return id;
+        return this.id;
     }
 
     public Vote getVote() {

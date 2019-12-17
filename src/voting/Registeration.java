@@ -222,7 +222,7 @@ public final class Registeration {
                 else {
                       isLogin = true;    
                       voter = new Voter(Fristname,LastName,idOfVoter,userNameOfVoter,password,phoneNumerOfVoter,cityOfVoter);
-                    System.out.println(voter.getVoterData());
+                    
                 } 
             }
             

@@ -20,11 +20,19 @@ public class Vote {
           private Scanner x ;
     private  VotingForm form ; 
 
-    public void addVote(HashMap<String,String> VoteList,String VoterID,String CandidateName){
-                if(!(hasVote(VoteList, VoterID))){ 
-              String  filePath = "VotingList.txt";
-            VoteList.put(VoterID, CandidateName);
-             try {
+    public void addVote(String VoterID,String CandidateName){
+        HashMap<String,String> VoteList = new  HashMap<>();
+        HashMap<String,String> storedVotList = (HashMap<String,String>) ListOfVote();
+                if(!(hasVote(storedVotList, VoterID)))
+                    VoteList.put(VoterID, CandidateName);
+                else
+                    
+                    System.out.println("you already voted");
+                
+    }
+    public void saveVote(String VoterID,String CandidateName){
+         String  filePath = "VotingList.txt";
+                 try {
                     FileWriter fw = new FileWriter(filePath, true);
                     BufferedWriter bufferedWriter = new BufferedWriter(fw);
                     try (PrintWriter pw = new PrintWriter(bufferedWriter)) {
@@ -37,18 +45,13 @@ public class Vote {
                     } catch (IOException ex) {
                         Logger.getLogger(Vote.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                }
-                else{
-                    
-                    System.out.println("you already voted");
-                }
     }
     public boolean hasVote(HashMap<String,String>List ,String VoterId){  
         
               return List.containsKey(VoterId);       
 }
          
-   public  Map<String,String> showListOfVote(){
+   public  Map<String,String> ListOfVote(){
         String filpath = "VotingList.txt";
                 String voterId = "";
                 String candidateName = "" ;

@@ -43,7 +43,7 @@ public class VoterInterFace {
                                 city = sc.next();
                                 
                                Registeration re = new Registeration(fristName, lastName, id, userName, password, phoneNumber, city);
-                               boolean success = re.Isvalidate(fristName, lastName, id, userName, password, phoneNumber, city);
+                               boolean success = re.Isvalidate();
                                
                              if(success){
                              

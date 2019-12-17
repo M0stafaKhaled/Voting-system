@@ -34,7 +34,8 @@ public class AdminInterface {
                    do {
                         System.out.println("-------------------------------------");
 
-                        System.out.println("1- Set Voting time"
+                        System.out.println(
+                                  "1- Set Voting time"
                                 + "\n2-show Candidtes Name "
                                 + "\n3-Add Candite"
                                 + "\n4-Show Result"
