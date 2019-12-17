@@ -6,22 +6,32 @@ public class AdminInterface {
     
     
     private Scanner sc = new Scanner(System.in);
-    public void adminSystemUI(){
-    int chooseOfCandidte = 0; 
-      String fristName, lastName, id, userName, password, phoneNumber, city, party_symbol, Electoral_program;
-       String AdminUserName,
-                 AdminPassword;
-         Result result = new Result();
-               boolean loginSuccess = false;
-                int status = 1;
+    String AdminUserName,
+           AdminPassword;
+    
+            
+    public boolean AdminLggIn(){
+    
+    
                 System.out.println("Enter your UserName :");
                 AdminUserName = sc.next();
                 System.out.println("Enter your Password :");
                 AdminPassword = sc.next();
                 Admin admin = new Admin();
-                loginSuccess = admin.AdminIsLogIn(AdminUserName, AdminPassword);
+                return admin.AdminIsLogIn(AdminUserName, AdminPassword);
+                
     
-     do {
+    } 
+    public void adminSystemUI(){
+    int chooseOfCandidte = 0; 
+      String fristName, lastName, id, userName, password, phoneNumber, city, party_symbol, Electoral_program;
+       
+         Result result = new Result();
+               
+                int status = 1;
+                if(AdminLggIn()){
+                   Admin admin = new Admin();
+                   do {
                         System.out.println("-------------------------------------");
 
                         System.out.println("1- Set Voting time"
@@ -90,6 +100,14 @@ public class AdminInterface {
                     System.out.println("Thank You for using our Pharmacy System \nGood Luck!");
                     System.exit(status);
     
+                
+                
+                
+                }
+               
+                
+    
+     
      
     }
     
