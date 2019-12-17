@@ -12,7 +12,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);
-        Result r = new Result();
+      
         
        
        
@@ -38,89 +38,11 @@ public class Main {
 
         switch (chooseUser) {
 
-            case 1: // if he is admin 
-                String AdminUserName,
-                 AdminPassword;
-                boolean loginSuccess;
-                int chooseOfCandidte = 0;
-                int status = 1;
-                System.out.println("Enter your UserName :");
-                AdminUserName = sc.next();
-                System.out.println("Enter your Password :");
-                AdminPassword = sc.next();
-                Admin admin = new Admin();
-                loginSuccess = admin.AdminIsLogIn(AdminUserName, AdminPassword);
-                //to cheack he login sucess 
-                if (loginSuccess) {
-                    do {
-                        System.out.println("-------------------------------------");
-
-                        System.out.println("1- Set Voting time"
-                                + "\n2-show Candidtes Name "
-                                + "\n3-Add Candite"
-                                + "\n4-Show Result"
-                        );
-                        System.out.println("-------------------------------------");
-                        System.out.println("choose the number of  method you want");
-                        if (sc.hasNextInt()) {
-                            chooseOfCandidte = sc.nextInt();
-                        }
-
-                        switch (chooseOfCandidte) {
-
-                            case 1:
-                                String startDate,
-                                endDate;
-                                System.out.println("Enter Start Date of voting");
-                                startDate = sc.next();
-                                System.out.println("Enter End End Date");
-                                endDate = sc.next();
-                                break;
-                              case 2:
-                                Admin.showCanditeName();
-                                break;
-
-                            case 3:
-                                System.out.println("Enter FristName : ");
-                                fristName = sc.next();
-                                System.out.println("Enter LastName : ");
-                                lastName = sc.next();
-                                System.out.println("Enter ID :");
-                                id = sc.next();
-                                System.out.println("Enter UserName : ");
-                                userName = sc.next();
-                                System.out.println("Enter PhoneNumber :");
-                                phoneNumber = sc.next();
-                                System.out.println("Enter City : ");
-                                city = sc.next();
-                                System.out.println("Enter Party Symbol : ");
-                                party_symbol = sc.next();
-                                System.out.println("Enter Electoral Program : ");
-                                Electoral_program = sc.next();
-                                admin.addCandidte(fristName, lastName, id, userName, phoneNumber, city, party_symbol, Electoral_program);
-                                break;
-                            case 4:
-                               
-                                Admin  a= new Admin(r);
-                                a.showResult();
-                                
-                                break;
-
-                            default:
-                                System.out.println("-----------------------");
-                                System.out.println("Try Again! ");
-                                System.out.println("-----------------------");
-                        }
-
-                        System.out.println("1-Back to main list"
-                                + "\n2-Exit");
-                        System.out.println("-------------------------");
-
-                        status = sc.nextInt();
-                    } while (status == 1);
-                    System.out.println("Thank You for using our Pharmacy System \nGood Luck!");
-                    System.exit(status);
-                }
+            case 1: 
+                       // if he is admin    
+                    AdminInterface adminInterface = new AdminInterface();
+                    adminInterface.adminSystemUI();
+                
 
                 break;
 
