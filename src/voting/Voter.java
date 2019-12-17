@@ -10,13 +10,18 @@ public final class Voter extends Person {
               private Vote vote;
    
           
-    public Voter(String name, String id, String userName, String password, String phoneNumber, String city,Vote vote) {
-               super(name, id, userName,  phoneNumber, city);
+    public Voter(String FirstName, String LastName, String ID,String username ,String password, String phoneNumber, String city,Vote vote) {
+               super(FirstName, LastName,ID , username , phoneNumber , city);
                 this.vote = vote;
-                   VoterData=  name + " "+ id +" "+ userName  +" "+ password +" "+ phoneNumber +" "+ city;
+                   VoterData=  FirstName + " " + LastName+ " "+ ID +" "+ username  +" "+ password +" "+ phoneNumber +" "+ city;
                    
     }
-   public void vote(Map<String,String>VoteList , String CandidateName){
+    public Voter(String FirstName, String LastName, String ID,String username ,String password, String phoneNumber, String city) {
+              super(FirstName, LastName,ID , username , phoneNumber , city);
+                   VoterData=  FirstName + " " + LastName+ " "+ ID +" "+ username  +" "+ password +" "+ phoneNumber +" "+ city;
+                   
+    }
+   public void Suvote(Map<String,String>VoteList , String CandidateName){
                 vote.addVote((HashMap<String, String>) VoteList, this.id, CandidateName);
    
    }

@@ -59,7 +59,7 @@ public class VoterInterFace {
                 System.out.println("Enter your Password :");
                 password = sc.next();
                 Registeration registeration = new Registeration();
-               registeration.login(userName, password, filepath);
+                registeration.login(userName, password, filepath);
                isLoginsuccess = registeration.isIsLogin();
                if(isLoginsuccess){
                     

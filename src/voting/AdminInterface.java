@@ -97,7 +97,7 @@ public class AdminInterface {
 
                         status = sc.nextInt();
                     } while (status == 1);
-                    System.out.println("Thank You for using our Pharmacy System \nGood Luck!");
+                    System.out.println("Thank You for using our Voting System \nGood Luck!");
                     System.exit(status);
     
                 
