@@ -20,7 +20,6 @@ public class Admin {
     public Admin(VoteDate voteDate) {
         this.voteDate = voteDate;
     }
-
     public Admin() {
     }
     ///////////////////////////////////////////////////

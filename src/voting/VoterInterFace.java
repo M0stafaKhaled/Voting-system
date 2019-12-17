@@ -62,28 +62,35 @@ public class VoterInterFace {
                     registeration.login(userName, password, filepath);
                     isLoginsuccess = registeration.isIsLogin();
                     if (isLoginsuccess) {
-
+                        Voter currentVoter = registeration.getVoter();
+                        System.out.println("Welcome To Voting System " + currentVoter.getFirstName());
                         System.out.println("----------------------------------------");
-                        System.out.println("1-Add vote\n2-Delete Vote");
+                        System.out.println("1-ShowCanditeInfo\n2-Add vote3-Delete Vote");
                         System.out.println("----------------------------------------");
                         option = sc.nextInt();
+                        VotingForm v = new VotingForm();
                         switch (option) {
 
                             case 1:
-                                int getNumberOfcandidate;
-                                String candidteName;
-                                VotingForm v = new VotingForm();
+
                                 v.showCandidatesInfo();
-                                getNumberOfcandidate = sc.nextInt();
-
-                                candidteName = v.getCandidateName(getNumberOfcandidate);
-                                if (!(candidteName == null)) {
-
-                                }
                                 break;
 
                             case 2:
-                                        
+
+                                int getNumberOfcandidate;
+                                String candidteName;
+
+                                getNumberOfcandidate = sc.nextInt();
+
+                                candidteName = v.getCandidateName(getNumberOfcandidate);
+                                if ((candidteName == null)) {
+
+                                }
+
+                                break;
+                            case 3:
+
                                 break;
 
                         }
