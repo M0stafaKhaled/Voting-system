@@ -1,4 +1,5 @@
 package voting;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -8,56 +9,48 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
-
 public final class Registeration {
-  private String firstName;
-  private String lastName;
+
+    private String firstName;
+    private String lastName;
     private String id;
     private String userName;
     private String password;
     private String phoneNumber;
     private String city;
-    private int ID; 
-    private  Voter voter;
-    private  Scanner x ;
-    private boolean  isLogin = false;
-   
-    public Registeration(String firstName ,String lastName, String id, String userName, String password, String phoneNumber, String city) {
-        this.firstName = 
+    private int ID;
+    private Voter voter;
+    private Scanner x;
+    private boolean isLogin = false;
+
+    public Registeration(String firstName, String lastName, String id, String userName, String password, String phoneNumber, String city) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.id = id;
         this.userName = userName;
         this.password = password;
         this.phoneNumber = phoneNumber;
         this.city = city;
-       
     }
-    public  Registeration(){}
 
-    public Voter getVoter() {
-        return voter;
-    }  
-     public boolean Isvalidate( String firstName ,String lastName,String id, String userName, String password, String phoneNumber, String city) {
+    public boolean Isvalidate() {
 
         if (!valFirsName(firstName)) {
             System.out.println("first name is unvalied");
             return false;
         }
-        if(!valLastName(lastName))
-        if (!valID(id)) {
-            System.out.println("ID is unvalied");
-            return false;
+        if (!valLastName(lastName)) {
+            System.out.println("last name is unvalied");
         }
         if (!valPhone(phoneNumber)) {
             System.out.println("phone is unvalied");
             return false;
         }
         if (!valPassword(password)) {
-             System.out.println("password is unvalied");
-              return false;
+            System.out.println("password is unvalied");
+            return false;
 
-        } 
-        
-        
+        }
         if (!valUserName(userName)) {
             System.out.println("userName is unvalied");
             return false;
@@ -70,15 +63,19 @@ public final class Registeration {
         return true;
     }
 
-   public static  boolean  valPhone(String phoneNumber) {
+    /////////////////////////////////////////////////////////////////////
+    // validate All Data
+    public static boolean valPhone(String phoneNumber) {
         return phoneNumber.charAt(0) == '0' && phoneNumber.charAt(1) == '1' && phoneNumber.length() == 11 && phoneNumber.matches("[0-9]+");
 
     }
+
     public boolean valLastName(String lastName) {
 
         return Pattern.matches("[a-zA-Z]+{3,6}", lastName);
     }
-  public boolean valFirsName(String firstName) {
+
+    public boolean valFirsName(String firstName) {
 
         return Pattern.matches("[a-zA-Z]+{3,6}", firstName);
     }
@@ -90,7 +87,6 @@ public final class Registeration {
     public boolean valPassword(String password) {
 
         if (password.length() >= 8) {
-
             return checkPassword(password);
         } else {
             System.out.println("Password is too small");
@@ -119,48 +115,6 @@ public final class Registeration {
         return false;
 
     }
-
-    public boolean valCity(String city) {
-
-        return Pattern.matches("[a-zA-Z]+", city);
-    }
-    
-    public boolean isRegiestedBefore(String ID){
-         String  filepatht = "Voter.txt";
-            boolean found = false;
-        String Fristname = null ;
-        String LastName = null;
-        String idOfVoter = null ;
-        String userNameOfVoter = null;
-        String passwordOfVoter = null ;
-        String  phoneNumerOfVoter = null ;                  
-        String cityOfVoter = null ;
-        try {
-            x = new Scanner(new File(filepatht));
-            x.useDelimiter("[,\n]");
-            while (x.hasNext()) {   
-                Fristname = x.next();
-                LastName = x.next();
-                idOfVoter = x.next();
-                userNameOfVoter = x.next();
-                passwordOfVoter = x.next();
-                phoneNumerOfVoter = x.next();
-                cityOfVoter = x.next();
-                if (idOfVoter.equals(ID) ) {
-                    found = true;
-                }
-            }
-        }
-        catch(IOException e1){
-            System.out.println("file not found");
-        
-        }
-        
-        
-        
-    return found ;
-    }
-
     public boolean valID(String id) {
         if (!Pattern.matches("[0-9]+", id)) {
             return false;
@@ -168,42 +122,46 @@ public final class Registeration {
         return id.length() == 14;
     }
 
-   
+    public boolean valCity(String city) {
 
-    public  void SignUp(String firstName ,String lastName, String id, String userName, 
-            String password, String phoneNumber, String city, String filePath , boolean Isvalidate ) {
-            if(!Isvalidate) {}
-            else {
-                try {
-                    FileWriter fw = new FileWriter(filePath, true);
-                    BufferedWriter bufferedWriter = new BufferedWriter(fw);
-                    try (PrintWriter pw = new PrintWriter(bufferedWriter)) {
-                        pw.println(firstName +"," + lastName+  "," + id+"," + userName + "," + password + "," + phoneNumber + "," + city);
-                        pw.flush();
-                       
-                    }
-                    
-                } catch (IOException e) {
-                    System.out.println("File not Found And"
-                            + "Data is unsaved");
+        return Pattern.matches("[a-zA-Z]+", city);
+    }
+    //////////////////////////////////////////////////
+
+    public void SignUp(String firstName, String lastName, String id, String userName,
+            String password, String phoneNumber, String city, String filePath, boolean Isvalidate) {
+        if (!Isvalidate) {
+        } else {
+            try {
+                FileWriter fw = new FileWriter(filePath, true);
+                BufferedWriter bufferedWriter = new BufferedWriter(fw);
+                try (PrintWriter pw = new PrintWriter(bufferedWriter)) {
+                    pw.println(firstName + "," + lastName + "," + id + "," + userName + "," + password + "," + phoneNumber + "," + city);
+                    pw.flush();
+
                 }
+
+            } catch (IOException e) {
+                System.out.println("File not Found And"
+                        + "Data is unsaved");
+            }
         }
     }
 
-    public  void login(String SearchTerm,String password, String filpath) {
+    public void login(String SearchTerm, String password, String filpath) {
         boolean found = false;
-        String Fristname = null ;
+        String Fristname = null;
         String LastName = null;
-        String idOfVoter = null ;
+        String idOfVoter = null;
         String userNameOfVoter = null;
-        String passwordOfVoter = null ;
-        String  phoneNumerOfVoter = null ;                  
-        String cityOfVoter = null ;
+        String passwordOfVoter = null;
+        String phoneNumerOfVoter = null;
+        String cityOfVoter = null;
         try {
             x = new Scanner(new File(filpath));
             x.useDelimiter("[,\n]");
-            while (x.hasNext()) {   
-               
+            while (x.hasNext()) {
+
                 Fristname = x.next();
                 LastName = x.next();
                 idOfVoter = x.next();
@@ -215,30 +173,67 @@ public final class Registeration {
                     found = true;
                 }
             }
-            if(found){
-                if(!(passwordOfVoter.equals(password))) {
+            if (found) {
+                if (!(passwordOfVoter.equals(password))) {
                     System.out.println("Incorrect password");
+                } else {
+                    isLogin = true;
+                    Voter CurrentVoter = new Voter(Fristname, LastName, idOfVoter, userNameOfVoter, password, phoneNumerOfVoter, cityOfVoter);
+                    setVoter(CurrentVoter);
+
                 }
-                else {
-                      isLogin = true;    
-                      voter = new Voter(Fristname,LastName,idOfVoter,userNameOfVoter,password,phoneNumerOfVoter,cityOfVoter);
-                    
-                } 
             }
-            
-            
+
+        } catch (FileNotFoundException e) {
+        }
+
+    }
+
+    public Registeration() {
+    }
+
+    public Voter getVoter() {
+        return voter;
+    }
+
+    public void setVoter(Voter voter) {
+        this.voter = voter;
+    }
+
+    public boolean isRegiestedBefore(String ID) {
+        String filepatht = "Voter.txt";
+        boolean found = false;
+        String Fristname = null;
+        String LastName = null;
+        String idOfVoter = null;
+        String userNameOfVoter = null;
+        String passwordOfVoter = null;
+        String phoneNumerOfVoter = null;
+        String cityOfVoter = null;
+        try {
+            x = new Scanner(new File(filepatht));
+            x.useDelimiter("[,\n]");
+            while (x.hasNext()) {
+                Fristname = x.next();
+                LastName = x.next();
+                idOfVoter = x.next();
+                userNameOfVoter = x.next();
+                passwordOfVoter = x.next();
+                phoneNumerOfVoter = x.next();
+                cityOfVoter = x.next();
+                if (idOfVoter.equals(ID)) {
+                    found = true;
+                }
+            }
+        } catch (IOException e1) {
+            System.out.println("file not found");
 
         }
-        catch (FileNotFoundException e) {}
-        
-
-       
+        return found;
     }
 
     public boolean isIsLogin() {
         return isLogin;
     }
 
-    
-    
 }
