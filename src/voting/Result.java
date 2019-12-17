@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class Result {
+public class Result implements EndTimeOfVoteing{
     
     Candidate candidate  ;
      private Scanner x ;
@@ -111,4 +111,9 @@ public class Result {
         System.out.println(key + "  has the most vote");
     }
 }); }     
+
+    @Override
+    public boolean EndTimeOfVoteing() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
    }

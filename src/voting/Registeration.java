@@ -9,7 +9,7 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 
-public final class Registeration {
+public final class Registeration implements  EndTimeOfVoteing{
   private String firstName;
   private String lastName;
     private String id;
@@ -203,6 +203,11 @@ public final class Registeration {
 
     public boolean isIsLogin() {
         return isLogin;
+    }
+
+    @Override
+    public boolean EndTimeOfVoteing() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
