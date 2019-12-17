@@ -65,7 +65,8 @@ public class VoterInterFace {
                         Voter currentVoter = registeration.getVoter();
                         System.out.println("Welcome To Voting System " + currentVoter.getFirstName());
                         System.out.println("----------------------------------------");
-                        System.out.println("1-ShowCanditeInfo\n2-Add vote3-Delete Vote");
+                        do{
+                        System.out.println("1-ShowCanditeInfo\n2-Add\nvote3-Delete Vote");
                         System.out.println("----------------------------------------");
                         option = sc.nextInt();
                         VotingForm v = new VotingForm();
@@ -92,16 +93,19 @@ public class VoterInterFace {
                             case 3:
 
                                 break;
-
-                        }
-
-                    }
-
-                default:
+                                default:
                     System.out.println("-----------------------");
                     System.out.println("Try Again! ");
                     System.out.println("-----------------------");
             }
+
+                        
+                        
+                        
+
+                    }
+
+                
             System.out.println("1-Back to main list"
                     + "\n2-Exit");
             System.out.println("-------------------------");
