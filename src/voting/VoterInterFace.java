@@ -7,10 +7,13 @@ import java.util.Scanner;
 public class VoterInterFace {
     
     private Scanner sc = new Scanner(System.in);
+    int LoobCondation = 1;
     String fristName, lastName, id, userName, password, phoneNumber, city ;
         public void VoterSystmetUI(){
         
          int chooseOfVoter = 0  ;
+        int x;
+            do{
                 System.out.println("-----------------------------------");
                
                 System.out.println("1-create new account \n2-login \nChoose:");
@@ -90,8 +93,26 @@ public class VoterInterFace {
                    }
                
                }
-                    
+                  
+                default:
+                                System.out.println("-----------------------");
+                                System.out.println("Try Again! ");
+                                System.out.println("-----------------------");
                 }
+                  System.out.println("1-Back to main list"
+                                + "\n2-Exit");
+                        System.out.println("-------------------------");
+
+                        LoobCondation = sc.nextInt();
+
         
-        }
+        }while (LoobCondation==1);
+            System.out.println("Thank You for using our Voting System \nGood Luck!");
+             System.exit(LoobCondation);
+                
+                
+            
+            
+            }
+        
 }
