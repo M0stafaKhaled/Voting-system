@@ -31,10 +31,6 @@ public final class Registeration {
         this.city = city;
        
     }
-    public Registeration(String loginterm , String Password , String filpath){
-    
-            login(loginterm, Password,filpath );
-    }
     public  Registeration(){}
 
     public Voter getVoter() {
@@ -129,11 +125,40 @@ public final class Registeration {
         return Pattern.matches("[a-zA-Z]+", city);
     }
     
-    public boolean isRegiestedBefore(){
-    
-        String  filepatht = "Voter.txt"; 
+    public boolean isRegiestedBefore(String ID){
+         String  filepatht = "Voter.txt";
+            boolean found = false;
+        String Fristname = null ;
+        String LastName = null;
+        String idOfVoter = null ;
+        String userNameOfVoter = null;
+        String passwordOfVoter = null ;
+        String  phoneNumerOfVoter = null ;                  
+        String cityOfVoter = null ;
+        try {
+            x = new Scanner(new File(filepatht));
+            x.useDelimiter("[,\n]");
+            while (x.hasNext()) {   
+                Fristname = x.next();
+                LastName = x.next();
+                idOfVoter = x.next();
+                userNameOfVoter = x.next();
+                passwordOfVoter = x.next();
+                phoneNumerOfVoter = x.next();
+                cityOfVoter = x.next();
+                if (idOfVoter.equals(ID) ) {
+                    found = true;
+                }
+            }
+        }
+        catch(IOException e1){
+            System.out.println("file not found");
         
-    return false ;
+        }
+        
+        
+        
+    return found ;
     }
 
     public boolean valID(String id) {

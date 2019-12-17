@@ -64,7 +64,7 @@ public class VoterInterFace {
                if(isLoginsuccess){
                     
                    
-                   System.out.println("1-Add vote\n 2-Delete Vote");
+                   System.out.println("1-Add vote\n2-Delete Vote");
                    option = sc.nextInt();
                    switch(option){
                    
