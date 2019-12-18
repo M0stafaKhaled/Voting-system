@@ -40,7 +40,7 @@ public class VotingForm {
 
     public void showCandidatesInfo() {
         Scanner x;
-        Scanner sc = new Scanner(System.in);
+       
         int chosenCandidate = 0;
         String filpath = "ListOfCandite.txt";
         String firstNameOfCandidte = null;
@@ -78,7 +78,6 @@ public class VotingForm {
 
             }
 
-            System.out.println("enter the number of Candidate you want to vote");
 
         } catch (FileNotFoundException r) {
         }

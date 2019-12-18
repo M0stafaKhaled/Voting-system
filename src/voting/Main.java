@@ -10,7 +10,14 @@ public class Main {
         Scanner sc = new Scanner(System.in);
    
         int chooseUser = 0;
-        System.out.println("1-Admin \n2-Voter\nChoose:");
+       System.out.println("______________________________________");
+        System.out.println("| Choose from following options:-    |");
+        System.out.println("| -------------------------------    |");
+        System.out.println("| 1-Admin \t\t\t     |");
+        System.out.println("| 2-Voter \t\t\t     |");
+        System.out.println("_______________________________________");
+        System.out.print("=> Choose one: ");
+
         if (sc.hasNextInt()) {
             chooseUser = sc.nextInt();
         } else {
@@ -18,20 +25,21 @@ public class Main {
         }
 
         switch (chooseUser) {
-                // if he is admin   
-            case 1: 
-                        
-                    AdminInterface adminInterface = new AdminInterface();
-                    adminInterface.adminSystemUI();
+            // if he is admin   
+            case 1:
+
+                AdminInterface adminInterface = new AdminInterface();
+                adminInterface.adminSystemUI();
                 break;
-                    // if he is Voter
+            // if he is Voter
             case 2:
-                   VoterInterFace voterInterFace = new VoterInterFace();
-                   voterInterFace.VoterSystmetUI();
-                    
+                VoterInterFace voterInterFace = new VoterInterFace();
+                voterInterFace.VoterSystmetUI();
+
                 break;
 
         }
+    }
 
 //             String filepath  = "voter.txt";
 // 
@@ -64,4 +72,4 @@ public class Main {
         //System.out.println(  result.getResultofCandidte("Mostafa"));
     }
 
-}
+

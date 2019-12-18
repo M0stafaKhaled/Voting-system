@@ -1,5 +1,6 @@
 package voting;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class VoterInterFace {
@@ -7,6 +8,7 @@ public class VoterInterFace {
     private Scanner sc = new Scanner(System.in);
     int LoobCondation = 1;
     String fristName, lastName, id, userName, password, phoneNumber, city;
+    Voter currentVoter ;
 
     public void VoterSystmetUI() {
 
@@ -53,7 +55,7 @@ public class VoterInterFace {
                 case 2:
                     String filepath = "Voter.txt";
                     boolean isLoginsuccess;
-                    int option;
+
                     System.out.println("Enter your UserName or ID :");
                     userName = sc.next();
                     System.out.println("Enter your Password :");
@@ -62,59 +64,71 @@ public class VoterInterFace {
                     registeration.login(userName, password, filepath);
                     isLoginsuccess = registeration.isIsLogin();
                     if (isLoginsuccess) {
-                        Voter currentVoter = registeration.getVoter();
+                         currentVoter = registeration.getVoter();
                         System.out.println("Welcome To Voting System " + currentVoter.getFirstName());
                         System.out.println("----------------------------------------");
-                        do{
-                        System.out.println("1-ShowCanditeInfo\n2-Add\nvote3-Delete Vote");
-                        System.out.println("----------------------------------------");
-                        option = sc.nextInt();
-                        VotingForm v = new VotingForm();
-                        switch (option) {
+                        VoterOtion();
+                    }
+                    break;
 
-                            case 1:
-
-                                v.showCandidatesInfo();
-                                break;
-
-                            case 2:
-
-                                int getNumberOfcandidate;
-                                String candidteName;
-
-                                getNumberOfcandidate = sc.nextInt();
-
-                                candidteName = v.getCandidateName(getNumberOfcandidate);
-                                if ((candidteName == null)) {
-
-                                }
-
-                                break;
-                            case 3:
-
-                                break;
-                                default:
+                default:
                     System.out.println("-----------------------");
                     System.out.println("Try Again! ");
                     System.out.println("-----------------------");
             }
+            System.out.println("1-Back to main list"
+                    + "\n2-Exit");
+            System.out.println("-------------------------");
+            LoobCondation = sc.nextInt();
+        } while (LoobCondation == 1);
+        System.out.println("Thank You for using our Voting System \nGood Luck!");
+        System.exit(LoobCondation);
 
-                        
-                        
-                        
+    }
 
+    public void VoterOtion() {
+        int LoobCondation2 = 1;
+        int option;
+        option = sc.nextInt();
+        do {
+            System.out.println("1-ShowCanditeInfo\n2-Add\nvote3-Delete Vote");
+            System.out.println("----------------------------------------");
+            option = sc.nextInt();
+            VotingForm v = new VotingForm();
+            switch (option) {
+                case 1:
+                    v.showCandidatesInfo();
+                    break;
+
+                case 2:
+                    int getNumberOfcandidate;
+                    String candidteName = null;
+                    ArrayList<String> ListOfCandidate = v.candidateList();
+                    for (int i = 0; i < ListOfCandidate.size(); i++) {
+                        System.out.println(ListOfCandidate.get(i));
                     }
-
-                
+                    System.out.println("Enter Number Of Candidate You Want to Vote");
+                    getNumberOfcandidate = sc.nextInt();
+                    try {
+                        candidteName = v.getCandidateName(getNumberOfcandidate);
+                    } catch (IndexOutOfBoundsException e) {
+                        System.out.println("not such candidte in this number");
+                    }
+                       currentVoter.submitvote(candidteName);
+                    break;
+                case 3:
+                break;
+                default:
+                    System.out.println("-----------------------");
+                    System.out.println("Try Again! ");
+                    System.out.println("-----------------------");
+            }
             System.out.println("1-Back to main list"
                     + "\n2-Exit");
             System.out.println("-------------------------");
 
-            LoobCondation = sc.nextInt();
-
-        } while (LoobCondation == 1);
-        System.out.println("Thank You for using our Voting System \nGood Luck!");
-        System.exit(LoobCondation);
+            LoobCondation2 = sc.nextInt();
+        } while (LoobCondation2 == 1);
 
     }
 

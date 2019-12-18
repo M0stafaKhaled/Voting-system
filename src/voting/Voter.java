@@ -10,11 +10,11 @@ public final class Voter extends Person {
 
         super(FirstName, LastName, ID, phoneNumber, city);
         this.password = password;
-
     }
-
     public void submitvote(String CandidateName) {
         vote.addVote(this.id, CandidateName);
+        vote.saveVote(getId(), CandidateName);
+        System.out.println("done");
 
     }
 
