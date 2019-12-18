@@ -40,7 +40,6 @@ public class VotingForm {
 
     public void showCandidatesInfo() {
         Scanner x;
-       
         int chosenCandidate = 0;
         String filpath = "ListOfCandite.txt";
         String firstNameOfCandidte = null;
@@ -56,7 +55,6 @@ public class VotingForm {
             x.useDelimiter("[,\n]");
             int i = 1;
             while (x.hasNext()) {
-
                 firstNameOfCandidte = x.next();
                 lasttNameOfCandidte = x.next();
                 idOfUser = x.next();
@@ -77,8 +75,6 @@ public class VotingForm {
                 i++;
 
             }
-
-
         } catch (FileNotFoundException r) {
         }
     }
@@ -89,7 +85,6 @@ public class VotingForm {
         if (candidateName.size() < numberOfchoosenCandidate) {
             return null;
         }
-
         return candidateName.get(numberOfchoosenCandidate - 1);
 
     }

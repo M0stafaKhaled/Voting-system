@@ -9,6 +9,7 @@ public class VoterInterFace {
     int LoobCondation = 1;
     String fristName, lastName, id, userName, password, phoneNumber, city;
     Voter currentVoter ;
+    private     VotingForm v;
 
     public void VoterSystmetUI() {
 
@@ -94,7 +95,7 @@ public class VoterInterFace {
             System.out.println("1-ShowCanditeInfo\n2-Add\nvote3-Delete Vote");
             System.out.println("----------------------------------------");
             option = sc.nextInt();
-            VotingForm v = new VotingForm();
+         v = new VotingForm();
             switch (option) {
                 case 1:
                     v.showCandidatesInfo();

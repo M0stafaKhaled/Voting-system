@@ -7,5 +7,7 @@ public class VoterProfile {
     public VoterProfile(Voter voter) {
         this.voter = voter;
     }
+    public void ShowDataOfVoter(){}
+    
     
 }

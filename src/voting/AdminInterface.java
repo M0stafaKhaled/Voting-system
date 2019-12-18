@@ -8,7 +8,7 @@ public class AdminInterface {
     private Scanner sc = new Scanner(System.in);
     String AdminUserName,
            AdminPassword;
-    
+    private  Admin admin ;
             
     public boolean AdminLggIn(){
     
@@ -17,7 +17,7 @@ public class AdminInterface {
                 AdminUserName = sc.next();
                 System.out.println("Enter your Password :");
                 AdminPassword = sc.next();
-                Admin admin = new Admin();
+               admin = new Admin();
                 return admin.AdminIsLogIn(AdminUserName, AdminPassword);
                 
     
@@ -30,7 +30,7 @@ public class AdminInterface {
                
                 int status = 1;
                 if(AdminLggIn()){
-                   Admin admin = new Admin();
+                    admin = new Admin();
                    do {
                         System.out.println("-------------------------------------");
 
