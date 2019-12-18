@@ -7,7 +7,13 @@ public class VoterProfile {
     public VoterProfile(Voter voter) {
         this.voter = voter;
     }
-    public void ShowDataOfVoter(){}
+    public void ShowDataOfVoter(){
+        System.out.println(voter.firstName + "\n" + voter.lastName + "\n"+voter.lastName + "\n"+ voter.getId()+ "\n"+voter.phoneNumber+voter.userName);
+        if(voter.ISVoted()){
+                System.out.println(voter.getCadidateName());
+        
+        }
+    }
     
     
 }

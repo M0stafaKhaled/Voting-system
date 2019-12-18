@@ -64,14 +64,14 @@ public class VotingForm {
                 party_symbol = x.next();
                 Electoral_program = x.next();
                 ////////////////////////////////////////////////////
-                System.out.println("---------------------------------------------");
+                System.out.println("______________________________________");
                 System.out.println(
-                        "Candilit Number " + i + "\n"
+                        "Candidate Number " + i + "\n"
                         + firstNameOfCandidte + "\n"
                         + lasttNameOfCandidte + "\n"
                         + party_symbol + "\n"
                         + Electoral_program);
-                System.out.println("---------------------------------------------");
+                System.out.println("______________________________________");
                 i++;
 
             }

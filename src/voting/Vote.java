@@ -30,6 +30,26 @@ public class Vote {
         }
 
     }
+    public String serch(String id){
+            String filePath = "VotingList.txt";
+             String voterId = "";
+             String candidateName = null;
+             try {
+            x = new Scanner(new File(filePath));
+            x.useDelimiter("[,\n]");
+            while (x.hasNext()) {
+                voterId = x.next();
+                candidateName = x.next();
+                if(voterId.equals(id)){
+                return candidateName;
+                }       
+            }
+            x.close();
+        } catch (FileNotFoundException e1) {
+            System.out.println("File not found");
+        }
+    return  candidateName;
+    }
 
     public void saveVote(String VoterID, String CandidateName) {
         String filePath = "VotingList.txt";

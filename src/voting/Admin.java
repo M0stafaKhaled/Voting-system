@@ -34,11 +34,13 @@ public class Admin {
         try {
             FileWriter fw = new FileWriter(filePath, true);
             BufferedWriter bufferedWriter = new BufferedWriter(fw);
-            try (PrintWriter pw = new PrintWriter(bufferedWriter)) {
+            PrintWriter pw = new PrintWriter(bufferedWriter);
+            try{
                 pw.println(startDate + "," + endDate);
                 pw.flush();
 
             }
+            catch(Exception e){}
 
         } catch (IOException e1) {
         }

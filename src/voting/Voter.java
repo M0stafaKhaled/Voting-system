@@ -11,11 +11,19 @@ public final class Voter extends Person {
         super(FirstName, LastName, ID, phoneNumber, city);
         this.password = password;
     }
+    
+    public boolean ISVoted(){
+            return vote.hasVote(this.id);
+    }
+    
     public void submitvote(String CandidateName) {
         vote.addVote(this.id, CandidateName);
         vote.saveVote(getId(), CandidateName);
         System.out.println("done");
-
+    }
+    public String getCadidateName(){
+ 
+    return vote.serch(id);
     }
 
     public void removeVote() {
