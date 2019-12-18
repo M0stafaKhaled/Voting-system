@@ -8,26 +8,28 @@ public class VoterInterFace {
     private Scanner sc = new Scanner(System.in);
     int LoobCondation = 1;
     String fristName, lastName, id, userName, password, phoneNumber, city;
-    Voter currentVoter ;
-    private     VotingForm v;
+    Voter currentVoter;
+    private VotingForm v;
 
     public void VoterSystmetUI() {
 
         int chooseOfVoter = 0;
         int x;
-        do {
+        boolean invalidin = true;
+        while (invalidin) {
             System.out.println("-----------------------------------");
 
-            System.out.println("1-create new account \n2-login \nChoose:");
+            System.out.println("1-create new account \n2-login\n3-Exit  \nChoose:");
 
             chooseOfVoter = sc.nextInt();
 
             System.out.println("-----------------------------------");
 
             switch (chooseOfVoter) {
-
+                case 3:
+                   
+                    break;
                 case 1:
-
                     System.out.println("Enter FristName : ");
                     fristName = sc.next();
                     System.out.println("Enter LastName : ");
@@ -42,15 +44,22 @@ public class VoterInterFace {
                     phoneNumber = sc.next();
                     System.out.println("Enter City : ");
                     city = sc.next();
-
                     Registeration re = new Registeration(fristName, lastName, id, userName, password, phoneNumber, city);
+                    boolean val = re.Isvalidate();
+                    if (!re.isRegiestedBefore(id)) {
+                        re.SignUp(fristName, lastName, id, userName, password, phoneNumber, city, fristName, val);
+                    } else {
+                        System.out.println("you aleardy regiest");
+                    }
                     boolean success = re.Isvalidate();
 
                     if (success) {
 
                         re.SignUp(fristName, lastName, id, userName, password, phoneNumber, city, "Voter.txt", success);
+                         Voter v = re.getVoter();
                         System.out.println("done");
                     }
+                    invalidin = false;
                     break;
 
                 case 2:
@@ -65,11 +74,12 @@ public class VoterInterFace {
                     registeration.login(userName, password, filepath);
                     isLoginsuccess = registeration.isIsLogin();
                     if (isLoginsuccess) {
-                         currentVoter = registeration.getVoter();
+                        currentVoter = registeration.getVoter();
                         System.out.println("Welcome To Voting System " + currentVoter.getFirstName());
                         System.out.println("----------------------------------------");
                         VoterOtion();
                     }
+                    invalidin = false;
                     break;
 
                 default:
@@ -77,28 +87,27 @@ public class VoterInterFace {
                     System.out.println("Try Again! ");
                     System.out.println("-----------------------");
             }
-            System.out.println("1-Back to main list"
-                    + "\n2-Exit");
-            System.out.println("-------------------------");
-            LoobCondation = sc.nextInt();
-        } while (LoobCondation == 1);
+            invalidin = false;
+        }
+
         System.out.println("Thank You for using our Voting System \nGood Luck!");
-        System.exit(LoobCondation);
+        //System.exit(LoobCondation);
 
     }
 
     public void VoterOtion() {
+        System.out.println("1-ShowCanditeInfo\n2-Add vote\n3-Delete Vote");
+        System.out.println("----------------------------------------");
         int LoobCondation2 = 1;
         int option;
-        option = sc.nextInt();
-        do {
-            System.out.println("1-ShowCanditeInfo\n2-Add\nvote3-Delete Vote");
-            System.out.println("----------------------------------------");
+        boolean notvalid = true;
+        while (notvalid) {
             option = sc.nextInt();
-         v = new VotingForm();
+            v = new VotingForm();
             switch (option) {
                 case 1:
                     v.showCandidatesInfo();
+
                     break;
 
                 case 2:
@@ -106,7 +115,7 @@ public class VoterInterFace {
                     String candidteName = null;
                     ArrayList<String> ListOfCandidate = v.candidateList();
                     for (int i = 0; i < ListOfCandidate.size(); i++) {
-                        System.out.println(ListOfCandidate.get(i));
+                        System.out.println(i + 1 + "-" + ListOfCandidate.get(i));
                     }
                     System.out.println("Enter Number Of Candidate You Want to Vote");
                     getNumberOfcandidate = sc.nextInt();
@@ -115,22 +124,31 @@ public class VoterInterFace {
                     } catch (IndexOutOfBoundsException e) {
                         System.out.println("not such candidte in this number");
                     }
-                       currentVoter.submitvote(candidteName);
+                    currentVoter.submitvote(candidteName);
+
                     break;
                 case 3:
-                break;
+                    System.out.println("done");
+                    break;
                 default:
                     System.out.println("-----------------------");
                     System.out.println("Try Again! ");
                     System.out.println("-----------------------");
             }
-            System.out.println("1-Back to main list"
-                    + "\n2-Exit");
+            System.out.println("1-Back to main list" + "\n2-Back to option maniu");
             System.out.println("-------------------------");
+            Scanner in = new Scanner(System.in);
+            int chose = in.nextInt();
+            if (chose == 1) {
+                notvalid = true;
+                VoterOtion();
 
-            LoobCondation2 = sc.nextInt();
-        } while (LoobCondation2 == 1);
+            } else {
+
+                VoterSystmetUI();
+            }
+
+        }
 
     }
-
 }

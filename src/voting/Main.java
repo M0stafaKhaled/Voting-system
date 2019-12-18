@@ -41,35 +41,6 @@ public class Main {
         }
     }
 
-//             String filepath  = "voter.txt";
-// 
-//
-//         Registeration re = new Registeration();
-//      boolean m =   re.Isvalidate(name, id,userName,password,phoneNumber,city);
-//                    re.SignUp(name, id, userName, password, phoneNumber, city, filepath, m);
-//         
-//           Vote vote = new Vote();
-//           Map m = vote.showListOfVote();                                    
-//              vote.addVote((HashMap<String, String>) m,"2201801239" ,"pipi");
-//           
-//           System.out.println(m.size());        
-//            m.keySet().stream().map((key) -> {
-//               System.out.println("key : " + key);
-//             return key;
-//         }).forEachOrdered((key) -> {
-//             System.out.println("value : " + m.get(key));
-//         });
-//          Result result = new Result();
-//         System.out.println(result.getResult());    
-//    Admin admin = new Admin();
-//            admin.candidateList();
-//            admin.showCanditeName();
-        //admin.addCandidte(name, id, userName, phoneNumber, city, party_symbol,Electoral_program);
-        //admin.showCanditeName();
-//          Result result = new Result();
-//         result.ShowResult();
-//         
-        //System.out.println(  result.getResultofCandidte("Mostafa"));
     }
 
 

@@ -45,7 +45,7 @@ public class VotingForm {
         String firstNameOfCandidte = null;
         String lasttNameOfCandidte = null;
         String idOfUser = null;
-        String userNameOfUser;
+        String userNameOfUser = null;
         String phoneNumberOfUser = null;
         String cityOfUser = null;
         String party_symbol, Electoral_program;

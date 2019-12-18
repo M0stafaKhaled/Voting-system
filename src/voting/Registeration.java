@@ -46,7 +46,7 @@ public final class Registeration {
             System.out.println("phone is unvalied");
             return false;
         }
-        if (!valPassword(password)) {
+        if (!valPassword(this.password)) {
             System.out.println("password is unvalied");
             return false;
 
@@ -177,11 +177,17 @@ public final class Registeration {
                 if (!(passwordOfVoter.equals(password))) {
                     System.out.println("Incorrect password");
                 } else {
-                    isLogin = true;
+                    this.isLogin = true ;
+                     
                     Voter CurrentVoter = new Voter(Fristname, LastName, idOfVoter, userNameOfVoter, password, phoneNumerOfVoter, cityOfVoter);
                     setVoter(CurrentVoter);
+                    
 
                 }
+            }
+            else {
+            
+                    System.out.println("no such elemnt in");
             }
 
         } catch (FileNotFoundException e) {
