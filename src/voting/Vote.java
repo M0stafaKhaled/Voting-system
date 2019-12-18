@@ -23,7 +23,7 @@ public class Vote {
     public void addVote(String VoterID, String CandidateName) {
         HashMap<String, String> VoteList = new HashMap<>();
         HashMap<String, String> storedVotList = (HashMap<String, String>) ListOfVote();
-        if (!(hasVote(storedVotList, VoterID))) {
+        if (!(hasVote(VoterID))) {
             VoteList.put(VoterID, CandidateName);
         } else {
             System.out.println("you already voted");
@@ -47,8 +47,8 @@ public class Vote {
         }
     }
 
-    public boolean hasVote(HashMap<String, String> List, String VoterId) {
-
+    public boolean hasVote(String VoterId) {
+           HashMap<String,String> List = (HashMap<String,String>) ListOfVote();
         return List.containsKey(VoterId);
     }
 
